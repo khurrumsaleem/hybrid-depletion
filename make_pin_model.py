@@ -1,6 +1,8 @@
 from math import pi
 import openmc
 
+# BEAVRS pin model
+
 ###############################################################################
 #                              Define materials
 ###############################################################################
@@ -61,6 +63,7 @@ uo2.volume = pi * fuel_or.r**2
 ###############################################################################
 
 # Instantiate a Settings object, set all runtime parameters, and export to XML
+# see Romano 2021 for actual settings
 settings = openmc.Settings()
 settings.batches = 50
 settings.inactive = 10
