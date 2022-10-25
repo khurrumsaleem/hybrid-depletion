@@ -1,7 +1,7 @@
 from math import pi
-
 import matplotlib.pyplot as plt
 import openmc.deplete
+from uncertainties import unumpy as unp
 
 ###############################################################################
 #                       List of Nuclides (Romano 2021)
@@ -48,3 +48,24 @@ for nuc in all_nuc:
 
     plt.savefig("figures/abs_nuclides/{}.png".format(nuc))
     plt.close()
+
+###############################################################################
+#                      Plot K-eff
+###############################################################################
+# direct tally results
+_, keff_dir = res_dir.get_keff()
+# flux tally results
+time, keff_flux = res_flux.get_keff()
+
+k_flux = unp.uarray(keff_flux[:, 0], keff_flux[:, 1])
+k_dir = unp.uarray(keff_dir[:, 0], keff_dir[:, 1])
+k_diff = (keff_flux - keff_dir) * 1e5
+fig, ax = plt.subplots()
+ax.errorbar(time/day, k_diff[:,0], yerr=2 * abs(k_diff[:,1]),
+            fmt='b.', ecolor='black')
+ax.axhline(color='k', linestyle='--')
+ax.set_xlabel("Time [days]")
+ax.set_ylabel("$k_{flux} - k_{direct}$ [pcm]")
+ax.grid(True)
+plt.savefig("figures/keff_diff.png")
+plt.close()
