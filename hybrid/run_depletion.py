@@ -6,12 +6,12 @@ import shutil
 openmc.deplete.pool.NUM_PROCESSES = 1
 openmc.deplete.pool.USE_MULTIPROCESSING = False
 
-def setup_flux_operator(reations, nuclides):
+def setup_flux_operator(reactions, nuclides):
     op = openmc.deplete.CoupledOperator(model, chain_file=chain_file,
                                         fission_yield_mode="average",
                                         reaction_rate_mode='flux',
                                         reaction_rate_opts={'energies': groups500,
-                                                            'reactions': reations,
+                                                            'reactions': reactions,
                                                             'nuclides': nuclides})
     return op
 
