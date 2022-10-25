@@ -23,8 +23,8 @@ day = 24*60*60
 ###############################################################################
 #                              Load Results
 ###############################################################################
-res_dir = openmc.deplete.Results("results/direct/depletion_results.h5")
-res_flux = openmc.deplete.Results("results/flux/depletion_results.h5")
+res_dir = openmc.deplete.Results("../deplete/results/direct/depletion_results.h5")
+res_flux = openmc.deplete.Results("../deplete/results/flux/depletion_results.h5")
 
 ###############################################################################
 #                      Plot Absolute Results per nuclide
@@ -46,5 +46,5 @@ for nuc in all_nuc:
     ax.legend()
     ax.grid(True, which='both')
 
-    plt.savefig("results/figures/abs_nuclides/{}.png".format(nuc))
+    plt.savefig("figures/abs_nuclides/{}.png".format(nuc))
     plt.close()
