@@ -3,8 +3,8 @@ import openmc.deplete
 import numpy as np
 import shutil
 
-openmc.deplete.pool.NUM_PROCESSES = 4
-openmc.deplete.pool.USE_MULTIPROCESSING = True
+openmc.deplete.pool.NUM_PROCESSES = 1
+openmc.deplete.pool.USE_MULTIPROCESSING = False
 
 def setup_flux_operator(reactions, nuclides):
     op = openmc.deplete.CoupledOperator(model, chain_file=chain_file,
