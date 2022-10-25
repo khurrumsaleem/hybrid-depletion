@@ -65,9 +65,9 @@ uo2.volume = pi * fuel_or.r**2
 # Instantiate a Settings object, set all runtime parameters, and export to XML
 # see Romano 2021 for actual settings
 settings = openmc.Settings()
-settings.batches = 50
-settings.inactive = 10
-settings.particles = 1000
+settings.batches = 80
+settings.inactive = 20
+settings.particles = int(1e4)
 
 # Create an initial uniform spatial source distribution over fissionable zones
 settings.source = openmc.source.Source(space=openmc.stats.Point())
