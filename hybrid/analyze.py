@@ -39,8 +39,8 @@ for nuc in all_nuc:
     conc_flux = atoms_flux * 1e-24/volume  # [atoms] [cm^2/b] / [cm^2] = atom/b
 
     fig, ax = plt.subplots()
-    ax.plot(time/day, conc_dir, 'kx', label=f"{nuc} (direct)")
-    ax.plot(time/day, conc_flux, 'bo', label=f"{nuc} (flux)")
+    ax.plot(time/day, conc_dir, 'bo', label=f"{nuc} (direct)")
+    ax.plot(time/day, conc_flux, 'kx', label=f"{nuc} (flux)")
     ax.set_xlabel("Time (days)")
     ax.set_ylabel("Atom/barn")
     ax.legend()
