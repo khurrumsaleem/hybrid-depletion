@@ -84,7 +84,7 @@ mv_results('results/direct/depletion_results.h5')
 ###############################################################################
 #                Run depletion with all nuclides flux tallied
 ###############################################################################
-op = setup_flux_operator(reations=None, nuclides=None)
+op = setup_flux_operator(None, None)
 run(op)
 mv_results('results/flux/depletion_results.h5')
 
