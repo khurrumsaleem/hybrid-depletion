@@ -3,8 +3,8 @@ import openmc.deplete
 import numpy as np
 import shutil
 
-openmc.deplete.pool.NUM_PROCESSES = 1
-openmc.deplete.pool.USE_MULTIPROCESSING = False
+openmc.deplete.pool.NUM_PROCESSES = 4
+openmc.deplete.pool.USE_MULTIPROCESSING = True
 
 def setup_flux_operator(reactions, nuclides):
     op = openmc.deplete.CoupledOperator(model, chain_file=chain_file,
@@ -54,15 +54,9 @@ groups300 = list(np.logspace(np.log10(1e-5), np.log10(400e3), 10, endpoint=False
             list(np.logspace(np.log10(8.05e6), np.log10(20e6), 20))
 
 ###############################################################################
-#     Reaction Rates to direct tally for hybrid (Salcedo-Perez 2019 M&C)
-###############################################################################
-rr2 = ['fission', '(n,gamma)']
-rr1 = ['(n,gamma)']
-
-###############################################################################
 #                  Initialize depletion calculation constants
 ###############################################################################
-chain_file = '../data/depletion/chain_casl_pwr.xml'
+chain_file = '../data/depletion/chain_endfb71_pwr.xml'
 # cumulative steps in MWd/kg
 burnup_cum = np.array([
     0.1, 0.5, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0,
@@ -89,6 +83,24 @@ run(op)
 mv_results('results/flux/depletion_results.h5')
 
 ###############################################################################
-#                          Run hybrid depletion
+#     Reaction Rates to direct tally for hybrid (Salcedo-Perez 2019 M&C)
 ###############################################################################
-# pass
+rr2 = ['fission', '(n,gamma)']
+rr1 = ['(n,gamma)']
+
+###############################################################################
+#                          Run hybrid depletion - both reaction rates
+###############################################################################
+# should direct tally all nuclides for each reaction rate
+op = setup_flux_operator(rr2, None)
+run(op)
+mv_results('results/hybrid/depletion_results_rr2.h5')
+
+###############################################################################
+#                          Run hybrid depletion - one reaction rates
+###############################################################################
+# should direct tally all nuclides for each reaction rate
+op = setup_flux_operator(rr1, None)
+run(op)
+mv_results('results/hybrid/depletion_results_rr1.h5')
+
