@@ -5,7 +5,7 @@ from uncertainties import unumpy as unp
 import numpy as np
 
 ###############################################################################
-#                       List of Nuclides (Romano 2021)
+#                       List of Nuclides + constants (Romano 2021)
 ###############################################################################
 actinides = ['U234', 'U235', 'U236', 'U238', 'U239', 'Np239',
              'Pu238', 'Pu239', 'Pu240', 'Pu241', 'Pu242',
@@ -26,9 +26,11 @@ day = 24*60*60
 ###############################################################################
 res_dir = openmc.deplete.Results("../deplete/results/direct/depletion_results.h5")
 res_flux = openmc.deplete.Results("../deplete/results/flux/depletion_results.h5")
+res_hy1 = openmc.deplete.Results("../deplete/results/hybrid/1/depletion_results.h5")
+res_hy2 = openmc.deplete.Results("../deplete/results/hybrid/2/depletion_results.h5")
 
 ###############################################################################
-#                      Plot Absolute Results per nuclide
+#                Plot Absolute Results per nuclide compared to direct
 ###############################################################################
 for nuc in all_nuc:
     # direct tally results
@@ -36,56 +38,57 @@ for nuc in all_nuc:
     conc_dir = atoms_dir * 1e-24/volume  # [atoms] [cm^2/b] / [cm^2] = atom/b
 
     # flux tally results
-    time, atoms_flux = res_flux.get_atoms('1', nuc)
+    _, atoms_flux = res_flux.get_atoms('1', nuc)
     conc_flux = atoms_flux * 1e-24/volume  # [atoms] [cm^2/b] / [cm^2] = atom/b
+
+    # flux tally results
+    _, atoms_hy1 = res_hy1.get_atoms('1', nuc)
+    conc_hy1 = atoms_hy1 * 1e-24/volume  # [atoms] [cm^2/b] / [cm^2] = atom/b
+
+    # flux tally results
+    time, atoms_hy2 = res_hy2.get_atoms('1', nuc)
+    conc_hy2 = atoms_hy2 * 1e-24/volume  # [atoms] [cm^2/b] / [cm^2] = atom/b
 
     fig, ax = plt.subplots()
     ax.plot(time/day, conc_dir, 'bo', label=f"{nuc} (direct)")
     ax.plot(time/day, conc_flux, 'kx', label=f"{nuc} (flux)")
+    ax.plot(time/day, conc_hy1, 'g+', label=f"{nuc} (hybrid 1)")
+    ax.plot(time/day, conc_hy2, 'm*', label=f"{nuc} (hybrid 2)")
     ax.set_xlabel("Time (days)")
     ax.set_ylabel("Atom/barn")
     ax.legend()
     ax.grid(True, which='both')
-
     plt.savefig("figures/abs_nuclides/{}.png".format(nuc))
-    plt.close()
-
-    fig, ax = plt.subplots()
-    ax.plot(time/day, (conc_flux - conc_dir)/conc_dir, 'bo', label=f"{nuc}")
-    ax.set_xlabel("Time (days)")
-    ax.set_ylabel("Relative Difference")
-    ax.legend()
-    ax.grid(True, which='both')
-
-    plt.savefig("figures/comp_nuclides/{}.png".format(nuc))
     plt.close()
 
 ###############################################################################
 #                      Plot K-eff
 ###############################################################################
-# direct tally results
-_, keff_dir = res_dir.get_keff()
-# flux tally results
-time, keff_flux = res_flux.get_keff()
+def plot_keff_diff(results, name):
+    # direct tally results
+    _, keff_dir = res_dir.get_keff()
+    # results to compare
+    time, keff = results.get_keff()
 
-k_flux = unp.uarray(keff_flux[:, 0], keff_flux[:, 1])
-k_dir = unp.uarray(keff_dir[:, 0], keff_dir[:, 1])
-k_diff = (keff_flux - keff_dir) * 1e5
-fig, ax = plt.subplots()
-ax.errorbar(time/day, k_diff[:,0], yerr=2 * abs(k_diff[:,1]),
-            fmt='b.', ecolor='black')
-ax.axhline(color='k', linestyle='--')
-ax.set_xlabel("Time [days]")
-ax.set_ylabel("$k_{flux} - k_{direct}$ [pcm]")
-ax.grid(True)
-plt.savefig("figures/keff_diff.png")
-plt.close()
+    k_diff = (keff - keff_dir) * 1e5
+    fig, ax = plt.subplots()
+    ax.errorbar(time/day, k_diff[:,0], yerr=2 * abs(k_diff[:,1]),
+                fmt='b.', ecolor='black')
+    ax.axhline(color='k', linestyle='--')
+    ax.set_xlabel("Time [days]")
+    ax.set_ylabel("$k_{{name}}} - k_{direct}$ [pcm]".format(name))
+    ax.grid(True)
+    plt.savefig("figures/keff_diff_{}.png".format(name.strip(" ").lower()))
+    plt.close()
+
+plot_keff_diff(res_flux, 'flux')
+plot_keff_diff(res_hy1, 'hybrid 1')
+plot_keff_diff(res_hy2, 'hybrid 2')
 
 ###############################################################################
-#                      Plot EOL and BOL concentration diffs
+#             Plot EOL concentration diffs compared to direct tally
 ###############################################################################
-
-def plot_nuc_diffs(nuclides, name):
+def plot_nuc_diffs(nuclides, results, nuc_name, res_name):
     eol = []
     for nuc in nuclides:
         # direct tally results
@@ -93,21 +96,25 @@ def plot_nuc_diffs(nuclides, name):
         conc_dir = atoms_dir * 1e-24/volume  # [atoms] [cm^2/b] / [cm^2] = atom/b
 
         # flux tally results
-        time, atoms_flux = res_flux.get_atoms('1', nuc)
-        conc_flux = atoms_flux * 1e-24/volume  # [atoms] [cm^2/b] / [cm^2] = atom/b
+        _, atoms = results.get_atoms('1', nuc)
+        conc = atoms * 1e-24/volume  # [atoms] [cm^2/b] / [cm^2] = atom/b
 
-        conc_diff = (conc_flux - conc_dir) / conc_dir
+        conc_diff = (conc - conc_dir) / conc_dir
         eol.append(conc_diff[-1])
 
     fig, ax = plt.subplots()
     y_pos = np.arange(len(nuclides))
     ax.barh(y_pos, eol, align='center')
     ax.set_yticks(y_pos, labels=nuclides)
-    #ax.invert_yaxis()  # labels read top-to-bottom
+    ax.invert_yaxis()  # labels read top-to-bottom
     ax.set_xlabel('EOL Difference')
-    ax.set_title(f"{name}")
-    plt.savefig("figures/eol_{}.png".format(name.strip(" ").lower()))
-    plt.show()
+    ax.set_title(f"{res_name}, {nuc_name}")
+    plt.savefig("figures/eol_{}_{}.png".format(nuc_name.strip(" ").lower(), res_name.strip(" ").lower()))
+    plt.close()
 
-plot_nuc_diffs(actinides, 'Actinides')
-plot_nuc_diffs(fps, 'Fission Products')
+plot_nuc_diffs(actinides, res_flux, 'Actinides', 'Flux')
+plot_nuc_diffs(fps, res_flux, 'Fission Products', 'Flux')
+plot_nuc_diffs(actinides, res_hy1, 'Actinides', 'Hybrid 1')
+plot_nuc_diffs(fps, res_hy1, 'Fission Products', 'Hybrid 1')
+plot_nuc_diffs(actinides, res_hy2, 'Actinides', 'Hybrid 2')
+plot_nuc_diffs(fps, res_hy2, 'Fission Products', 'Hybrid 2')
