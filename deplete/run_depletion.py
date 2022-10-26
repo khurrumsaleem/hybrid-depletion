@@ -2,15 +2,17 @@ import openmc
 import openmc.deplete
 import numpy as np
 import shutil
+import argparse
+import pathlib
 
 openmc.deplete.pool.NUM_PROCESSES = 1
 openmc.deplete.pool.USE_MULTIPROCESSING = False
 
 def setup_flux_operator(reactions, nuclides):
     op = openmc.deplete.CoupledOperator(model, chain_file=chain_file,
-                                        fission_yield_mode="average",
+                                        #fission_yield_mode="average",
                                         reaction_rate_mode='flux',
-                                        reaction_rate_opts={'energies': groups500,
+                                        reaction_rate_opts={'energies': groups,
                                                             'reactions': reactions,
                                                             'nuclides': nuclides})
     return op
@@ -20,26 +22,31 @@ def run(op):
                                                     timestep_units='MWd/kg')
     integrator.integrate()
 
-def mv_results(dest):
-    shutil.move("depletion_results.h5", dest)
+###############################################################################
+#                           Parse Args
+###############################################################################
+parser = argparse.ArgumentParser(description='Specify Simulations to run')
+parser.add_argument('-g', '--groups', default=500, type=int, choices=[300, 500],
+                    help='Number of energy groups to use; 500 or 300 (default=500)')
+parser.add_argument('-d', '--direct', action='store_true',
+                    help='Run direct tally')
+parser.add_argument('-f', '--flux', action='store_true',
+                    help='Run full flux tally')
+parser.add_argument('-y', '--hybrid', type=int, choices=[1, 2],
+                    help='Hybrid tally with either 1 or 2 direct reaction rates')
+parser.add_argument('-a', '--all', action='store_true',
+                    help='Run all types of depletion calcs')
+parser.add_argument('-m', '--model', default='.', type=pathlib.Path,
+                    help='Path to model .xml files and chain file to load. Default cwd.')
+args = parser.parse_args()
 
 ###############################################################################
 #                   Load Model (../make_pin_model.py)
 ###############################################################################
-model = openmc.model.Model.from_xml()
-
-###############################################################################
-#                   List of Nuclides (Romano 2021)
-###############################################################################
-actinides = ['U234', 'U235', 'U236', 'U238', 'U239','Np239',
-             'Pu238', 'Pu239', 'Pu240', 'Pu241', 'Pu242',
-             'Am241', 'Am242', 'Am242_m1', 'Am243', 'Am244',
-             'Cm242', 'Cm243', 'Cm244', 'Cm245', 'Cm246']
-fps = ['Kr85', 'Sr90', 'Y90', 'Zr93', 'Mo95', 'Mo97', 'Tc99', 'Ru101', 'Ru106',
-       'Rh103', 'Pd105', 'Pd107', 'Ag109', 'Te132', 'I129', 'I131', 'Xe131',
-       'Xe135', 'Cs133', 'Cs134', 'Cs135', 'Cs137', 'La139', 'Ce142', 'Nd143',
-       'Nd145', 'Pm147', 'Sm149', 'Sm151']
-all_nuc = actinides + fps
+model_path = str(args.model)
+model = openmc.model.Model.from_xml(geometry=model_path + '/geometry.xml',
+                                    settings=model_path + '/settings.xml',
+                                    materials=model_path + '/materials.xml')
 
 ###############################################################################
 #                 Energy Group Structure (Salcedo-Perez 2019 M&C)
@@ -53,10 +60,16 @@ groups300 = list(np.logspace(np.log10(1e-5), np.log10(400e3), 10, endpoint=False
             list(np.logspace(np.log10(3.21e6), np.log10(8.025e6), 260)) +\
             list(np.logspace(np.log10(8.05e6), np.log10(20e6), 20))
 
+if args.groups == 300:
+    groups = groups300
+else:
+    # default / other option
+    groups = groups500
+
 ###############################################################################
 #                  Initialize depletion calculation constants
 ###############################################################################
-chain_file = '../data/depletion/chain_endfb71_pwr.xml'
+chain_file = model_path + '/chain_endfb71_pwr.xml'
 # cumulative steps in MWd/kg
 burnup_cum = np.array([
     0.1, 0.5, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0,
@@ -69,18 +82,20 @@ power = 174  # W/cm
 ###############################################################################
 #             Run depletion with all nuclides directly tallied
 ###############################################################################
-op = openmc.deplete.CoupledOperator(model, chain_file=chain_file,
-                                    fission_yield_mode="average",
-                                    reaction_rate_mode='direct')
-run(op)
-mv_results('results/direct/depletion_results.h5')
+if args.all or args.direct:
+    print("\n******* Running Direct Calculation *******\n")
+    op = openmc.deplete.CoupledOperator(model, chain_file=chain_file,
+                                        #fission_yield_mode="average",
+                                        reaction_rate_mode='direct')
+    run(op)
 
 ###############################################################################
 #                Run depletion with all nuclides flux tallied
 ###############################################################################
-op = setup_flux_operator(None, None)
-run(op)
-mv_results('results/flux/depletion_results.h5')
+if args.all or args.flux:
+    print("\n******* Running Flux Calculation *******\n")
+    op = setup_flux_operator(None, None)
+    run(op)
 
 ###############################################################################
 #     Reaction Rates to direct tally for hybrid (Salcedo-Perez 2019 M&C)
@@ -91,16 +106,18 @@ rr1 = ['(n,gamma)']
 ###############################################################################
 #                          Run hybrid depletion - both reaction rates
 ###############################################################################
-# should direct tally all nuclides for each reaction rate
-op = setup_flux_operator(rr2, None)
-run(op)
-mv_results('results/hybrid/depletion_results_rr2.h5')
+if args.all or args.hybrid == 2:
+    print("\n******* Running Hybrid 2 Calculation *******\n")
+    # should direct tally all nuclides for each reaction rate
+    op = setup_flux_operator(rr2, None)
+    run(op)
 
 ###############################################################################
 #                          Run hybrid depletion - one reaction rates
 ###############################################################################
 # should direct tally all nuclides for each reaction rate
-op = setup_flux_operator(rr1, None)
-run(op)
-mv_results('results/hybrid/depletion_results_rr1.h5')
+if args.all or args.hybrid == 1:
+    print("\n******* Running Hybrid 1 Calculation *******\n")
+    op = setup_flux_operator(rr1, None)
+    run(op)
 
