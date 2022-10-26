@@ -2,6 +2,7 @@ from math import pi
 import matplotlib.pyplot as plt
 import openmc.deplete
 from uncertainties import unumpy as unp
+import numpy as np
 
 ###############################################################################
 #                       List of Nuclides (Romano 2021)
@@ -49,6 +50,16 @@ for nuc in all_nuc:
     plt.savefig("figures/abs_nuclides/{}.png".format(nuc))
     plt.close()
 
+    fig, ax = plt.subplots()
+    ax.plot(time/day, (conc_flux - conc_dir)/conc_dir, 'bo', label=f"{nuc}")
+    ax.set_xlabel("Time (days)")
+    ax.set_ylabel("Relative Difference")
+    ax.legend()
+    ax.grid(True, which='both')
+
+    plt.savefig("figures/comp_nuclides/{}.png".format(nuc))
+    plt.close()
+
 ###############################################################################
 #                      Plot K-eff
 ###############################################################################
@@ -69,3 +80,34 @@ ax.set_ylabel("$k_{flux} - k_{direct}$ [pcm]")
 ax.grid(True)
 plt.savefig("figures/keff_diff.png")
 plt.close()
+
+###############################################################################
+#                      Plot EOL and BOL concentration diffs
+###############################################################################
+
+def plot_nuc_diffs(nuclides, name):
+    eol = []
+    for nuc in nuclides:
+        # direct tally results
+        _, atoms_dir = res_dir.get_atoms('1', nuc)
+        conc_dir = atoms_dir * 1e-24/volume  # [atoms] [cm^2/b] / [cm^2] = atom/b
+
+        # flux tally results
+        time, atoms_flux = res_flux.get_atoms('1', nuc)
+        conc_flux = atoms_flux * 1e-24/volume  # [atoms] [cm^2/b] / [cm^2] = atom/b
+
+        conc_diff = (conc_flux - conc_dir) / conc_dir
+        eol.append(conc_diff[-1])
+
+    fig, ax = plt.subplots()
+    y_pos = np.arange(len(nuclides))
+    ax.barh(y_pos, eol, align='center')
+    ax.set_yticks(y_pos, labels=nuclides)
+    #ax.invert_yaxis()  # labels read top-to-bottom
+    ax.set_xlabel('EOL Difference')
+    ax.set_title(f"{name}")
+    plt.savefig("figures/eol_{}.png".format(name.strip(" ").lower()))
+    plt.show()
+
+plot_nuc_diffs(actinides, 'Actinides')
+plot_nuc_diffs(fps, 'Fission Products')
