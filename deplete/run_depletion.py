@@ -5,8 +5,8 @@ import shutil
 import argparse
 import pathlib
 
-#openmc.deplete.pool.NUM_PROCESSES = 1
-#openmc.deplete.pool.USE_MULTIPROCESSING = False
+openmc.deplete.pool.NUM_PROCESSES = 20
+openmc.deplete.pool.USE_MULTIPROCESSING = True
 
 def parse_args():
     ###############################################################################
