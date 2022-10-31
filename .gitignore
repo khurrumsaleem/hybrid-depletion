@@ -3,3 +3,4 @@
 *out
 *png
 .DS_Store
+!deplete/results/*/depletion_results.h5
