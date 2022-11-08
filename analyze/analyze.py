@@ -26,8 +26,8 @@ day = 24*60*60
 ###############################################################################
 res_dir = openmc.deplete.Results("../deplete/results/direct/depletion_results.h5")
 res_flux = openmc.deplete.Results("../deplete/results/flux/depletion_results.h5")
-res_hy1 = openmc.deplete.Results("../deplete/results/hybrid/1/depletion_results.h5")
-res_hy2 = openmc.deplete.Results("../deplete/results/hybrid/2/depletion_results.h5")
+res_hy1 = openmc.deplete.Results("../deplete/results/hybrid1/depletion_results.h5")
+res_hy2 = openmc.deplete.Results("../deplete/results/hybrid2/depletion_results.h5")
 
 ###############################################################################
 #                Plot Absolute Results per nuclide compared to direct
@@ -49,16 +49,36 @@ for nuc in all_nuc:
     time, atoms_hy2 = res_hy2.get_atoms('1', nuc)
     conc_hy2 = atoms_hy2 * 1e-24/volume  # [atoms] [cm^2/b] / [cm^2] = atom/b
 
+    # plot absolute
     fig, ax = plt.subplots()
-    ax.plot(time/day, conc_dir, 'bo', label=f"{nuc} (direct)")
-    ax.plot(time/day, conc_flux, 'kx', label=f"{nuc} (flux)")
-    ax.plot(time/day, conc_hy1, 'g+', label=f"{nuc} (hybrid 1)")
-    ax.plot(time/day, conc_hy2, 'm*', label=f"{nuc} (hybrid 2)")
+    ax.plot(time/day, conc_dir, 'bo', label="direct")
+    ax.plot(time/day, conc_flux, 'kx', label="flux")
+    ax.plot(time/day, conc_hy1, 'g+', label="hybrid 1")
+    ax.plot(time/day, conc_hy2, 'm*', label="hybrid 2")
+    ax.set_title(f"{nuc}")
     ax.set_xlabel("Time (days)")
     ax.set_ylabel("Atom/barn")
     ax.legend()
     ax.grid(True, which='both')
+    plt.tight_layout()
     plt.savefig("figures/abs_nuclides/{}.png".format(nuc))
+    plt.close()
+
+    # plot diff compared to direct
+    h1_diff = (atoms_hy1 - atoms_dir) / atoms_dir
+    h2_diff = (atoms_hy2 - atoms_dir) / atoms_dir
+
+    fig, ax = plt.subplots()
+    ax.plot(time/day, h1_diff, 'g+', label="hybrid 1")
+    ax.plot(time/day, h2_diff, 'm*', label="hybrid 2")
+    ax.axhline(color='k', linestyle='--')
+    ax.set_title(f"{nuc}")
+    ax.set_xlabel("Time (days)")
+    ax.set_ylabel("Difference compared to direct")
+    ax.legend()
+    ax.grid(True, which='both')
+    plt.tight_layout()
+    plt.savefig("figures/diff_nuclides/{}.png".format(nuc))
     plt.close()
 
 ###############################################################################
@@ -76,7 +96,7 @@ def plot_keff_diff(results, name):
                 fmt='b.', ecolor='black')
     ax.axhline(color='k', linestyle='--')
     ax.set_xlabel("Time [days]")
-    ax.set_ylabel("$k_{{name}}} - k_{direct}$ [pcm]".format(name))
+    ax.set_ylabel("k_{} - k_direct [pcm]".format(name))
     ax.grid(True)
     plt.savefig("figures/keff_diff_{}.png".format(name.strip(" ").lower()))
     plt.close()
@@ -102,13 +122,16 @@ def plot_nuc_diffs(nuclides, results, nuc_name, res_name):
         conc_diff = (conc - conc_dir) / conc_dir
         eol.append(conc_diff[-1])
 
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(5,8))
     y_pos = np.arange(len(nuclides))
     ax.barh(y_pos, eol, align='center')
     ax.set_yticks(y_pos, labels=nuclides)
+    ax.axvline(color='k', linestyle='--')
+    ax.grid(True, axis='x')
     ax.invert_yaxis()  # labels read top-to-bottom
     ax.set_xlabel('EOL Difference')
     ax.set_title(f"{res_name}, {nuc_name}")
+    plt.tight_layout()
     plt.savefig("figures/eol_{}_{}.png".format(nuc_name.strip(" ").lower(), res_name.strip(" ").lower()))
     plt.close()
 
