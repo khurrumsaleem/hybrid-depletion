@@ -25,6 +25,8 @@ def parse_args():
                         help='Run all types of depletion calcs')
     parser.add_argument('-m', '--model', default='.', type=pathlib.Path,
                         help='Path to model .xml files and chain file to load. Default cwd.')
+    parser.add_argument('-c', '--chain', default='.', type=pathlib.Path,
+                        help='Path to chain .xml file and chain file to load. Default cwd.')
     args = parser.parse_args()
 
     return args
@@ -62,7 +64,8 @@ if __name__ == "__main__":
     ###############################################################################
     #                  Reduce Chain File
     ###############################################################################
-    chain_file = model_path + '/chain_endfb71_pwr.xml'
+    chain_path = str(args.chain)
+    chain_file = chain_path + '/chain_endfb71_pwr.xml'
     chain_full = openmc.deplete.Chain.from_xml(chain_file)
     stable = [
         nuc.name
@@ -70,8 +73,8 @@ if __name__ == "__main__":
         if nuc.half_life is None or nuc.half_life > 1e15
     ]
     chain_reduced = chain_full.reduce(stable)
-    chain_reduced.export_to_xml(model_path + '/chain_reduced_pwr.xml')
-    chain_file = model_path + '/chain_reduced_pwr.xml'
+    chain_reduced.export_to_xml(chain_path + '/chain_reduced_pwr.xml')
+    chain_file = chain_path + '/chain_reduced_pwr.xml'
 
     ###############################################################################
     #                  Set burnup steps
