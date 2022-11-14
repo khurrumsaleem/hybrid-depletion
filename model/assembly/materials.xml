@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <materials>
-  <material id="1" name="Air" temperature="300">
+  <material id="1" name="Air" temperature="300" volume="253.73617011768485">
     <density units="g/cc" value="0.000616" />
     <nuclide ao="0.2094205995" name="O16" />
     <nuclide ao="7.94005e-05" name="O17" />
@@ -11,12 +11,12 @@
     <nuclide ao="0.00929300655" name="Ar40" />
     <nuclide ao="0.00027" name="C0" />
   </material>
-  <material id="5" name="Helium" temperature="300">
+  <material id="5" name="Helium" temperature="300" volume="3784.5878738964743">
     <density units="g/cc" value="0.0015981" />
     <nuclide name="He3" wo="1.507034606209861e-06" />
     <nuclide name="He4" wo="0.9999984929653939" />
   </material>
-  <material id="6" name="Inconel 718" temperature="300">
+  <material id="6" name="Inconel 718" temperature="300" volume="241.79134995489292">
     <density units="g/cc" value="8.2" />
     <nuclide name="Si28" wo="0.003215573104903266" />
     <nuclide name="Si29" wo="0.0001691112602495986" />
@@ -36,7 +36,7 @@
     <nuclide name="Ni62" wo="0.019630455365952575" />
     <nuclide name="Ni64" wo="0.005160721974232592" />
   </material>
-  <material id="7" name="Zircaloy 4" temperature="300">
+  <material id="7" name="Zircaloy 4" temperature="300" volume="18648.854171692903">
     <density units="g/cc" value="6.55" />
     <nuclide name="O16" wo="0.001249496518284908" />
     <nuclide name="O17" wo="5.034817150919744e-07" />
@@ -64,7 +64,7 @@
     <nuclide name="Sn122" wo="0.0006894094805329658" />
     <nuclide name="Sn124" wo="0.0008762916038183061" />
   </material>
-  <material depletable="true" id="9" name="Fuel 1.6%" temperature="300">
+  <material depletable="true" id="9" name="Fuel 1.6%" temperature="300" volume="46674.267680029305">
     <density units="g/cc" value="10.31341" />
     <nuclide ao="1.9992420000000004" name="O16" />
     <nuclide ao="0.0007580000000000002" name="O17" />
@@ -73,7 +73,7 @@
     <nuclide ao="0.983476440990893" name="U238" />
     <nuclide ao="7.467631597236129e-05" name="U236" />
   </material>
-  <material id="15" name="Borated Water" temperature="300">
+  <material id="15" name="Borated Water" temperature="300" volume="130475.68028039914">
     <density units="g/cc" value="0.7405820675158279" />
     <nuclide ao="0.0003217866044341838" name="B10" />
     <nuclide ao="0.001301758322075321" name="B11" />
@@ -83,7 +83,7 @@
     <nuclide ao="0.00037838467647285283" name="O17" />
     <sab name="c_H_in_H2O" />
   </material>
-  <material id="16" name="Water SPN">
+  <material id="16" name="Water SPN" volume="6787.105475039342">
     <density units="g/cc" value="0.9810025319057221" />
     <nuclide ao="0.0003217866044341838" name="B10" />
     <nuclide ao="0.001301758322075321" name="B11" />
@@ -93,7 +93,7 @@
     <nuclide ao="0.00037838467647285283" name="O17" />
     <sab name="c_H_in_H2O" />
   </material>
-  <material id="17" name="SS SPN" temperature="300">
+  <material id="17" name="SS SPN" temperature="300" volume="4135.922994134268">
     <density units="g/cc" value="3.6838480704877297" />
     <nuclide name="Si28" wo="0.005512411036977027" />
     <nuclide name="Si29" wo="0.00028990501757074046" />
