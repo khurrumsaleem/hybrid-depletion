@@ -65,8 +65,8 @@ for nuc in all_nuc:
     plt.close()
 
     # plot diff compared to direct
-    h1_diff = (atoms_hy1 - atoms_dir) / atoms_dir
-    h2_diff = (atoms_hy2 - atoms_dir) / atoms_dir
+    h1_diff = (atoms_hy1 - atoms_dir) / atoms_dir * 100
+    h2_diff = (atoms_hy2 - atoms_dir) / atoms_dir * 100
 
     fig, ax = plt.subplots()
     ax.plot(time/day, h1_diff, 'g+', label="hybrid 1")
@@ -74,7 +74,7 @@ for nuc in all_nuc:
     ax.axhline(color='k', linestyle='--')
     ax.set_title(f"{nuc}")
     ax.set_xlabel("Time (days)")
-    ax.set_ylabel("Difference compared to direct")
+    ax.set_ylabel("Difference compared to direct (%)")
     ax.legend()
     ax.grid(True, which='both')
     plt.tight_layout()
@@ -119,7 +119,7 @@ def plot_nuc_diffs(nuclides, results, nuc_name, res_name):
         _, atoms = results.get_atoms('1', nuc)
         conc = atoms * 1e-24/volume  # [atoms] [cm^2/b] / [cm^2] = atom/b
 
-        conc_diff = (conc - conc_dir) / conc_dir
+        conc_diff = (conc - conc_dir) / conc_dir * 100
         eol.append(conc_diff[-1])
 
     fig, ax = plt.subplots(figsize=(5,8))
@@ -129,7 +129,7 @@ def plot_nuc_diffs(nuclides, results, nuc_name, res_name):
     ax.axvline(color='k', linestyle='--')
     ax.grid(True, axis='x')
     ax.invert_yaxis()  # labels read top-to-bottom
-    ax.set_xlabel('EOL Difference')
+    ax.set_xlabel('EOL Difference (%)')
     ax.set_title(f"{res_name}, {nuc_name}")
     plt.tight_layout()
     plt.savefig("figures/eol_{}_{}.png".format(nuc_name.strip(" ").lower(), res_name.strip(" ").lower()))
