@@ -67,7 +67,7 @@ uo2.volume = pi * fuel_or.r**2
 settings = openmc.Settings()
 settings.batches = 80
 settings.inactive = 20
-settings.particles = int(1e4)
+settings.particles = int(5e5)
 
 # Create an initial uniform spatial source distribution over fissionable zones
 settings.source = openmc.source.Source(space=openmc.stats.Point())
