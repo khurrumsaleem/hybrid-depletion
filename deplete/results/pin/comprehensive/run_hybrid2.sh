@@ -5,7 +5,7 @@ export cur_dir=`pwd`
 export main_dir="/home/kkiesling/depletion/hybrid-depletion"
 
 function run_calcs () {
-    for h in 1 2
+    for h in 2
     do
         for n in all actinides mix
         do
