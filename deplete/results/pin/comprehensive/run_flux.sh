@@ -5,12 +5,15 @@ export cur_dir=`pwd`
 export main_dir="/home/kkiesling/depletion/hybrid-depletion"
 
 function run_calcs () {
-    for g in 300 500 2500 10000
-    do
-        cd ${cur_dir}/flux/${g}
-        echo "Running Flux ${g}"
-        mpiexec -n 20 python ${main_dir}/deplete/run_depletion.py -m ${main_dir}/model/pin/ -c ${main_dir}/model/chain_endfb71_pwr.xml -g ${g} -f
-    done
+    groups=$@
+    for g in ${groups[@]}
+        do
+            cd ${cur_dir}/flux/${g}
+            cp ${main_dir}/model/chain_endfb71_pwr.xml .
+            echo "Running Flux ${g}"
+            mpiexec -n 20 python ${main_dir}/deplete/run_depletion.py -g ${g} -f -m ${main_dir}/model/pin/ -c chain_endfb71_pwr.xml
+        done
 }
 
-run_calcs
+g=(10000)
+run_calcs ${g[@]}

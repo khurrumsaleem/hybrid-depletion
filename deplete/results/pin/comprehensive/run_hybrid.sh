@@ -5,18 +5,22 @@ export cur_dir=`pwd`
 export main_dir="/home/kkiesling/depletion/hybrid-depletion"
 
 function run_calcs () {
-    for h in 1 2
+    n=$1
+    shift
+    groups=$@
+    h=1
+    for g in ${groups[@]}
     do
-        for n in all actinides mix
-        do
-            for g in 300 500 2500 10000
-            do
-                cd ${cur_dir}/hybrid${h}/${n}/${g}
-                echo "Running Hybrid ${h} ${n} ${g}"
-                mpiexec -n 20 python ${main_dir}/deplete/run_depletion.py -m ${main_dir}/model/pin/ -c ${main_dir}/model/chain_endfb71_pwr.xml -n ${n} -g ${g} -y ${h}
-            done
-        done
+        cd ${cur_dir}/hybrid${h}/${n}/${g}
+        cp ${main_dir}/model/chain_endfb71_pwr.xml .
+        echo "Running Hybrid 1 ${n} ${g}"
+        mpiexec -n 20 python ${main_dir}/deplete/run_depletion.py -n ${n} -g ${g} -y ${h} -m ${main_dir}/model/pin/ -c chain_endfb71_pwr.xml
     done
 }
 
-run_calcs
+gr=(2500 10000)
+run_calcs all ${gr[@]}
+
+gr=(300 500 2500 10000)
+run_calcs actinides ${gr[@]}
+run_calcs mix ${gr[@]}
