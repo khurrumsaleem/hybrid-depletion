@@ -85,19 +85,6 @@ if __name__ == "__main__":
     #                  Reduce Chain File
     ###############################################################################
     chain_file = str(args.chain)
-    chain_red_path = chain_file[:-4] + '_reduced.xml'
-
-    # don't reduce if already reduced
-    if not os.path.exists(chain_red_path):
-        chain_full = openmc.deplete.Chain.from_xml(chain_file)
-        stable = [
-            nuc.name
-            for nuc in chain_full.nuclides
-            if nuc.half_life is None or nuc.half_life > 1e15
-        ]
-        chain_reduced = chain_full.reduce(stable)
-        chain_reduced.export_to_xml(chain_red_path)
-        chain_file = chain_red_path
 
     ###############################################################################
     #                  Set burnup steps
