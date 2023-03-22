@@ -1,0 +1,562 @@
+nohup: ignoring input
+ln: failed to create symbolic link './chain_endfb71_pwr.xml': File exists
+Running Hybrid 2 300 actinides
+                                %%%%%%%%%%%%%%%
+                           %%%%%%%%%%%%%%%%%%%%%%%%
+                        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                                    %%%%%%%%%%%%%%%%%%%%%%%%
+                                     %%%%%%%%%%%%%%%%%%%%%%%%
+                 ###############      %%%%%%%%%%%%%%%%%%%%%%%%
+                ##################     %%%%%%%%%%%%%%%%%%%%%%%
+                ###################     %%%%%%%%%%%%%%%%%%%%%%%
+                ####################     %%%%%%%%%%%%%%%%%%%%%%
+                #####################     %%%%%%%%%%%%%%%%%%%%%
+                ######################     %%%%%%%%%%%%%%%%%%%%
+                #######################     %%%%%%%%%%%%%%%%%%
+                 #######################     %%%%%%%%%%%%%%%%%
+                 ######################     %%%%%%%%%%%%%%%%%
+                  ####################     %%%%%%%%%%%%%%%%%
+                    #################     %%%%%%%%%%%%%%%%%
+                     ###############     %%%%%%%%%%%%%%%%
+                       ############     %%%%%%%%%%%%%%%
+                          ########     %%%%%%%%%%%%%%
+                                      %%%%%%%%%%%
+
+                 | The OpenMC Monte Carlo Code
+       Copyright | 2011-2023 MIT, UChicago Argonne LLC, and contributors
+         License | https://docs.openmc.org/en/latest/license.html
+         Version | 0.13.3-dev
+        Git SHA1 | aba7ce71b1d0f0b1cf82a5257f8716d422abbbeb
+       Date/Time | 2023-03-22 15:34:26
+   MPI Processes | 20
+  OpenMP Threads | 1
+
+ Reading settings XML file...
+ Reading cross sections XML file...
+ Reading materials XML file...
+ Reading geometry XML file...
+ Reading O16 from /home/kkiesling/depletion/endfb71_hdf5/O16.h5
+ Reading O17 from /home/kkiesling/depletion/endfb71_hdf5/O17.h5
+ Reading U234 from /home/kkiesling/depletion/endfb71_hdf5/U234.h5
+ Reading U235 from /home/kkiesling/depletion/endfb71_hdf5/U235.h5
+ Reading U236 from /home/kkiesling/depletion/endfb71_hdf5/U236.h5
+ Reading U238 from /home/kkiesling/depletion/endfb71_hdf5/U238.h5
+ Reading He3 from /home/kkiesling/depletion/endfb71_hdf5/He3.h5
+ Reading He4 from /home/kkiesling/depletion/endfb71_hdf5/He4.h5
+ Reading Cr50 from /home/kkiesling/depletion/endfb71_hdf5/Cr50.h5
+ Reading Cr52 from /home/kkiesling/depletion/endfb71_hdf5/Cr52.h5
+ Reading Cr53 from /home/kkiesling/depletion/endfb71_hdf5/Cr53.h5
+ Reading Cr54 from /home/kkiesling/depletion/endfb71_hdf5/Cr54.h5
+ Reading Fe54 from /home/kkiesling/depletion/endfb71_hdf5/Fe54.h5
+ Reading Fe56 from /home/kkiesling/depletion/endfb71_hdf5/Fe56.h5
+ Reading Fe57 from /home/kkiesling/depletion/endfb71_hdf5/Fe57.h5
+ Reading Fe58 from /home/kkiesling/depletion/endfb71_hdf5/Fe58.h5
+ Reading Zr90 from /home/kkiesling/depletion/endfb71_hdf5/Zr90.h5
+ Reading Zr91 from /home/kkiesling/depletion/endfb71_hdf5/Zr91.h5
+ Reading Zr92 from /home/kkiesling/depletion/endfb71_hdf5/Zr92.h5
+ Reading Zr94 from /home/kkiesling/depletion/endfb71_hdf5/Zr94.h5
+ Reading Zr96 from /home/kkiesling/depletion/endfb71_hdf5/Zr96.h5
+ Reading Sn112 from /home/kkiesling/depletion/endfb71_hdf5/Sn112.h5
+ Reading Sn114 from /home/kkiesling/depletion/endfb71_hdf5/Sn114.h5
+ Reading Sn115 from /home/kkiesling/depletion/endfb71_hdf5/Sn115.h5
+ Reading Sn116 from /home/kkiesling/depletion/endfb71_hdf5/Sn116.h5
+ Reading Sn117 from /home/kkiesling/depletion/endfb71_hdf5/Sn117.h5
+ Reading Sn118 from /home/kkiesling/depletion/endfb71_hdf5/Sn118.h5
+ Reading Sn119 from /home/kkiesling/depletion/endfb71_hdf5/Sn119.h5
+ Reading Sn120 from /home/kkiesling/depletion/endfb71_hdf5/Sn120.h5
+ Reading Sn122 from /home/kkiesling/depletion/endfb71_hdf5/Sn122.h5
+ Reading Sn124 from /home/kkiesling/depletion/endfb71_hdf5/Sn124.h5
+ Reading H1 from /home/kkiesling/depletion/endfb71_hdf5/H1.h5
+ Reading H2 from /home/kkiesling/depletion/endfb71_hdf5/H2.h5
+ Reading B10 from /home/kkiesling/depletion/endfb71_hdf5/B10.h5
+ Reading B11 from /home/kkiesling/depletion/endfb71_hdf5/B11.h5
+ Reading c_H_in_H2O from /home/kkiesling/depletion/endfb71_hdf5/c_H_in_H2O.h5
+ Minimum neutron data temperature: 294 K
+ Maximum neutron data temperature: 294 K
+ Preparing distributed cell instances...
+ Reading plot XML file...
+ Writing summary.h5 file...
+ Reading Np236 from /home/kkiesling/depletion/endfb71_hdf5/Np236.h5
+ Reading Am242 from /home/kkiesling/depletion/endfb71_hdf5/Am242.h5
+ Reading Am243 from /home/kkiesling/depletion/endfb71_hdf5/Am243.h5
+ Reading Pa233 from /home/kkiesling/depletion/endfb71_hdf5/Pa233.h5
+ Reading U237 from /home/kkiesling/depletion/endfb71_hdf5/U237.h5
+ Reading Pu241 from /home/kkiesling/depletion/endfb71_hdf5/Pu241.h5
+ Reading Th234 from /home/kkiesling/depletion/endfb71_hdf5/Th234.h5
+ Reading Th231 from /home/kkiesling/depletion/endfb71_hdf5/Th231.h5
+ Reading Pu239 from /home/kkiesling/depletion/endfb71_hdf5/Pu239.h5
+ Reading Am242_m1 from /home/kkiesling/depletion/endfb71_hdf5/Am242_m1.h5
+ Reading Cm242 from /home/kkiesling/depletion/endfb71_hdf5/Cm242.h5
+ Reading Pu240 from /home/kkiesling/depletion/endfb71_hdf5/Pu240.h5
+ Reading Am241 from /home/kkiesling/depletion/endfb71_hdf5/Am241.h5
+ Reading Cm244 from /home/kkiesling/depletion/endfb71_hdf5/Cm244.h5
+ Reading Pu243 from /home/kkiesling/depletion/endfb71_hdf5/Pu243.h5
+ Reading Th232 from /home/kkiesling/depletion/endfb71_hdf5/Th232.h5
+ Reading Pu236 from /home/kkiesling/depletion/endfb71_hdf5/Pu236.h5
+ Reading U239 from /home/kkiesling/depletion/endfb71_hdf5/U239.h5
+ Reading Pa232 from /home/kkiesling/depletion/endfb71_hdf5/Pa232.h5
+ Reading Pa231 from /home/kkiesling/depletion/endfb71_hdf5/Pa231.h5
+ Reading Np237 from /home/kkiesling/depletion/endfb71_hdf5/Np237.h5
+ Reading Np238 from /home/kkiesling/depletion/endfb71_hdf5/Np238.h5
+ Reading Pu242 from /home/kkiesling/depletion/endfb71_hdf5/Pu242.h5
+ Reading Th230 from /home/kkiesling/depletion/endfb71_hdf5/Th230.h5
+ Reading U232 from /home/kkiesling/depletion/endfb71_hdf5/U232.h5
+ Reading Pu238 from /home/kkiesling/depletion/endfb71_hdf5/Pu238.h5
+ Reading Np239 from /home/kkiesling/depletion/endfb71_hdf5/Np239.h5
+ Reading U233 from /home/kkiesling/depletion/endfb71_hdf5/U233.h5
+ Reading H3 from /home/kkiesling/depletion/endfb71_hdf5/H3.h5
+ Reading Li6 from /home/kkiesling/depletion/endfb71_hdf5/Li6.h5
+ Reading Li7 from /home/kkiesling/depletion/endfb71_hdf5/Li7.h5
+ Reading Be9 from /home/kkiesling/depletion/endfb71_hdf5/Be9.h5
+ Reading N14 from /home/kkiesling/depletion/endfb71_hdf5/N14.h5
+ Reading N15 from /home/kkiesling/depletion/endfb71_hdf5/N15.h5
+ Reading F19 from /home/kkiesling/depletion/endfb71_hdf5/F19.h5
+ Reading Na22 from /home/kkiesling/depletion/endfb71_hdf5/Na22.h5
+ WARNING: Negative value(s) found on probability table for nuclide Na22 at 250K
+ WARNING: Negative value(s) found on probability table for nuclide Na22 at 294K
+ WARNING: Negative value(s) found on probability table for nuclide Na22 at 600K
+ WARNING: Negative value(s) found on probability table for nuclide Na22 at 900K
+ WARNING: Negative value(s) found on probability table for nuclide Na22 at 1200K
+ WARNING: Negative value(s) found on probability table for nuclide Na22 at 2500K
+ Reading Na23 from /home/kkiesling/depletion/endfb71_hdf5/Na23.h5
+ Reading Mg24 from /home/kkiesling/depletion/endfb71_hdf5/Mg24.h5
+ Reading Mg25 from /home/kkiesling/depletion/endfb71_hdf5/Mg25.h5
+ Reading Mg26 from /home/kkiesling/depletion/endfb71_hdf5/Mg26.h5
+ Reading Al27 from /home/kkiesling/depletion/endfb71_hdf5/Al27.h5
+ Reading Si28 from /home/kkiesling/depletion/endfb71_hdf5/Si28.h5
+ Reading Si29 from /home/kkiesling/depletion/endfb71_hdf5/Si29.h5
+ Reading Si30 from /home/kkiesling/depletion/endfb71_hdf5/Si30.h5
+ Reading P31 from /home/kkiesling/depletion/endfb71_hdf5/P31.h5
+ Reading S32 from /home/kkiesling/depletion/endfb71_hdf5/S32.h5
+ Reading S33 from /home/kkiesling/depletion/endfb71_hdf5/S33.h5
+ Reading S34 from /home/kkiesling/depletion/endfb71_hdf5/S34.h5
+ Reading S36 from /home/kkiesling/depletion/endfb71_hdf5/S36.h5
+ Reading Cl35 from /home/kkiesling/depletion/endfb71_hdf5/Cl35.h5
+ Reading Cl37 from /home/kkiesling/depletion/endfb71_hdf5/Cl37.h5
+ Reading Ar36 from /home/kkiesling/depletion/endfb71_hdf5/Ar36.h5
+ WARNING: Negative value(s) found on probability table for nuclide Ar36 at 250K
+ WARNING: Negative value(s) found on probability table for nuclide Ar36 at 294K
+ WARNING: Negative value(s) found on probability table for nuclide Ar36 at 600K
+ WARNING: Negative value(s) found on probability table for nuclide Ar36 at 900K
+ WARNING: Negative value(s) found on probability table for nuclide Ar36 at 1200K
+ WARNING: Negative value(s) found on probability table for nuclide Ar36 at 2500K
+ Reading Ar38 from /home/kkiesling/depletion/endfb71_hdf5/Ar38.h5
+ Reading Ar40 from /home/kkiesling/depletion/endfb71_hdf5/Ar40.h5
+ Reading K39 from /home/kkiesling/depletion/endfb71_hdf5/K39.h5
+ Reading K40 from /home/kkiesling/depletion/endfb71_hdf5/K40.h5
+ Reading K41 from /home/kkiesling/depletion/endfb71_hdf5/K41.h5
+ Reading Ca40 from /home/kkiesling/depletion/endfb71_hdf5/Ca40.h5
+ Reading Ca42 from /home/kkiesling/depletion/endfb71_hdf5/Ca42.h5
+ Reading Ca43 from /home/kkiesling/depletion/endfb71_hdf5/Ca43.h5
+ Reading Ca44 from /home/kkiesling/depletion/endfb71_hdf5/Ca44.h5
+ Reading Ca46 from /home/kkiesling/depletion/endfb71_hdf5/Ca46.h5
+ Reading Ca48 from /home/kkiesling/depletion/endfb71_hdf5/Ca48.h5
+ Reading Sc45 from /home/kkiesling/depletion/endfb71_hdf5/Sc45.h5
+ Reading Ti46 from /home/kkiesling/depletion/endfb71_hdf5/Ti46.h5
+ Reading Ti47 from /home/kkiesling/depletion/endfb71_hdf5/Ti47.h5
+ Reading Ti48 from /home/kkiesling/depletion/endfb71_hdf5/Ti48.h5
+ Reading Ti49 from /home/kkiesling/depletion/endfb71_hdf5/Ti49.h5
+ Reading Ti50 from /home/kkiesling/depletion/endfb71_hdf5/Ti50.h5
+ Reading V50 from /home/kkiesling/depletion/endfb71_hdf5/V50.h5
+ Reading V51 from /home/kkiesling/depletion/endfb71_hdf5/V51.h5
+ Reading Mn55 from /home/kkiesling/depletion/endfb71_hdf5/Mn55.h5
+ Reading Co58 from /home/kkiesling/depletion/endfb71_hdf5/Co58.h5
+ Reading Co59 from /home/kkiesling/depletion/endfb71_hdf5/Co59.h5
+ Reading Ni58 from /home/kkiesling/depletion/endfb71_hdf5/Ni58.h5
+ Reading Ni59 from /home/kkiesling/depletion/endfb71_hdf5/Ni59.h5
+ Reading Ni60 from /home/kkiesling/depletion/endfb71_hdf5/Ni60.h5
+ Reading Ni61 from /home/kkiesling/depletion/endfb71_hdf5/Ni61.h5
+ Reading Ni62 from /home/kkiesling/depletion/endfb71_hdf5/Ni62.h5
+ Reading Ni64 from /home/kkiesling/depletion/endfb71_hdf5/Ni64.h5
+ Reading Cu63 from /home/kkiesling/depletion/endfb71_hdf5/Cu63.h5
+ Reading Cu65 from /home/kkiesling/depletion/endfb71_hdf5/Cu65.h5
+ Reading Zn64 from /home/kkiesling/depletion/endfb71_hdf5/Zn64.h5
+ Reading Zn65 from /home/kkiesling/depletion/endfb71_hdf5/Zn65.h5
+ Reading Zn66 from /home/kkiesling/depletion/endfb71_hdf5/Zn66.h5
+ Reading Zn67 from /home/kkiesling/depletion/endfb71_hdf5/Zn67.h5
+ Reading Zn68 from /home/kkiesling/depletion/endfb71_hdf5/Zn68.h5
+ Reading Zn70 from /home/kkiesling/depletion/endfb71_hdf5/Zn70.h5
+ Reading Ga69 from /home/kkiesling/depletion/endfb71_hdf5/Ga69.h5
+ Reading Ga71 from /home/kkiesling/depletion/endfb71_hdf5/Ga71.h5
+ Reading Ge70 from /home/kkiesling/depletion/endfb71_hdf5/Ge70.h5
+ Reading Ge72 from /home/kkiesling/depletion/endfb71_hdf5/Ge72.h5
+ Reading Ge73 from /home/kkiesling/depletion/endfb71_hdf5/Ge73.h5
+ Reading Ge74 from /home/kkiesling/depletion/endfb71_hdf5/Ge74.h5
+ Reading Ge76 from /home/kkiesling/depletion/endfb71_hdf5/Ge76.h5
+ Reading As74 from /home/kkiesling/depletion/endfb71_hdf5/As74.h5
+ Reading As75 from /home/kkiesling/depletion/endfb71_hdf5/As75.h5
+ Reading Se74 from /home/kkiesling/depletion/endfb71_hdf5/Se74.h5
+ Reading Se76 from /home/kkiesling/depletion/endfb71_hdf5/Se76.h5
+ Reading Se77 from /home/kkiesling/depletion/endfb71_hdf5/Se77.h5
+ Reading Se78 from /home/kkiesling/depletion/endfb71_hdf5/Se78.h5
+ Reading Se79 from /home/kkiesling/depletion/endfb71_hdf5/Se79.h5
+ WARNING: Negative value(s) found on probability table for nuclide Se79 at 250K
+ WARNING: Negative value(s) found on probability table for nuclide Se79 at 294K
+ WARNING: Negative value(s) found on probability table for nuclide Se79 at 600K
+ WARNING: Negative value(s) found on probability table for nuclide Se79 at 900K
+ WARNING: Negative value(s) found on probability table for nuclide Se79 at 1200K
+ Reading Se80 from /home/kkiesling/depletion/endfb71_hdf5/Se80.h5
+ Reading Se82 from /home/kkiesling/depletion/endfb71_hdf5/Se82.h5
+ Reading Br79 from /home/kkiesling/depletion/endfb71_hdf5/Br79.h5
+ Reading Br81 from /home/kkiesling/depletion/endfb71_hdf5/Br81.h5
+ Reading Kr78 from /home/kkiesling/depletion/endfb71_hdf5/Kr78.h5
+ Reading Kr80 from /home/kkiesling/depletion/endfb71_hdf5/Kr80.h5
+ Reading Kr82 from /home/kkiesling/depletion/endfb71_hdf5/Kr82.h5
+ Reading Kr83 from /home/kkiesling/depletion/endfb71_hdf5/Kr83.h5
+ Reading Kr84 from /home/kkiesling/depletion/endfb71_hdf5/Kr84.h5
+ Reading Kr85 from /home/kkiesling/depletion/endfb71_hdf5/Kr85.h5
+ Reading Kr86 from /home/kkiesling/depletion/endfb71_hdf5/Kr86.h5
+ Reading Rb85 from /home/kkiesling/depletion/endfb71_hdf5/Rb85.h5
+ Reading Rb86 from /home/kkiesling/depletion/endfb71_hdf5/Rb86.h5
+ Reading Rb87 from /home/kkiesling/depletion/endfb71_hdf5/Rb87.h5
+ Reading Sr84 from /home/kkiesling/depletion/endfb71_hdf5/Sr84.h5
+ Reading Sr86 from /home/kkiesling/depletion/endfb71_hdf5/Sr86.h5
+ Reading Sr87 from /home/kkiesling/depletion/endfb71_hdf5/Sr87.h5
+ Reading Sr88 from /home/kkiesling/depletion/endfb71_hdf5/Sr88.h5
+ Reading Sr89 from /home/kkiesling/depletion/endfb71_hdf5/Sr89.h5
+ Reading Sr90 from /home/kkiesling/depletion/endfb71_hdf5/Sr90.h5
+ Reading Y89 from /home/kkiesling/depletion/endfb71_hdf5/Y89.h5
+ Reading Y90 from /home/kkiesling/depletion/endfb71_hdf5/Y90.h5
+ Reading Y91 from /home/kkiesling/depletion/endfb71_hdf5/Y91.h5
+ Reading Zr93 from /home/kkiesling/depletion/endfb71_hdf5/Zr93.h5
+ Reading Zr95 from /home/kkiesling/depletion/endfb71_hdf5/Zr95.h5
+ Reading Nb93 from /home/kkiesling/depletion/endfb71_hdf5/Nb93.h5
+ Reading Nb94 from /home/kkiesling/depletion/endfb71_hdf5/Nb94.h5
+ WARNING: Negative value(s) found on probability table for nuclide Nb94 at 250K
+ WARNING: Negative value(s) found on probability table for nuclide Nb94 at 294K
+ WARNING: Negative value(s) found on probability table for nuclide Nb94 at 600K
+ WARNING: Negative value(s) found on probability table for nuclide Nb94 at 900K
+ WARNING: Negative value(s) found on probability table for nuclide Nb94 at 1200K
+ WARNING: Negative value(s) found on probability table for nuclide Nb94 at 2500K
+ Reading Nb95 from /home/kkiesling/depletion/endfb71_hdf5/Nb95.h5
+ WARNING: Negative value(s) found on probability table for nuclide Nb95 at 250K
+ WARNING: Negative value(s) found on probability table for nuclide Nb95 at 294K
+ WARNING: Negative value(s) found on probability table for nuclide Nb95 at 600K
+ WARNING: Negative value(s) found on probability table for nuclide Nb95 at 900K
+ WARNING: Negative value(s) found on probability table for nuclide Nb95 at 1200K
+ Reading Mo92 from /home/kkiesling/depletion/endfb71_hdf5/Mo92.h5
+ Reading Mo94 from /home/kkiesling/depletion/endfb71_hdf5/Mo94.h5
+ Reading Mo95 from /home/kkiesling/depletion/endfb71_hdf5/Mo95.h5
+ Reading Mo96 from /home/kkiesling/depletion/endfb71_hdf5/Mo96.h5
+ Reading Mo97 from /home/kkiesling/depletion/endfb71_hdf5/Mo97.h5
+ Reading Mo98 from /home/kkiesling/depletion/endfb71_hdf5/Mo98.h5
+ Reading Mo99 from /home/kkiesling/depletion/endfb71_hdf5/Mo99.h5
+ WARNING: Negative value(s) found on probability table for nuclide Mo99 at 250K
+ WARNING: Negative value(s) found on probability table for nuclide Mo99 at 294K
+ WARNING: Negative value(s) found on probability table for nuclide Mo99 at 600K
+ WARNING: Negative value(s) found on probability table for nuclide Mo99 at 900K
+ WARNING: Negative value(s) found on probability table for nuclide Mo99 at 1200K
+ WARNING: Negative value(s) found on probability table for nuclide Mo99 at 2500K
+ Reading Mo100 from /home/kkiesling/depletion/endfb71_hdf5/Mo100.h5
+ Reading Tc99 from /home/kkiesling/depletion/endfb71_hdf5/Tc99.h5
+ Reading Ru96 from /home/kkiesling/depletion/endfb71_hdf5/Ru96.h5
+ Reading Ru98 from /home/kkiesling/depletion/endfb71_hdf5/Ru98.h5
+ Reading Ru99 from /home/kkiesling/depletion/endfb71_hdf5/Ru99.h5
+ Reading Ru100 from /home/kkiesling/depletion/endfb71_hdf5/Ru100.h5
+ Reading Ru101 from /home/kkiesling/depletion/endfb71_hdf5/Ru101.h5
+ Reading Ru102 from /home/kkiesling/depletion/endfb71_hdf5/Ru102.h5
+ Reading Ru103 from /home/kkiesling/depletion/endfb71_hdf5/Ru103.h5
+ Reading Ru104 from /home/kkiesling/depletion/endfb71_hdf5/Ru104.h5
+ Reading Ru105 from /home/kkiesling/depletion/endfb71_hdf5/Ru105.h5
+ Reading Ru106 from /home/kkiesling/depletion/endfb71_hdf5/Ru106.h5
+ Reading Rh103 from /home/kkiesling/depletion/endfb71_hdf5/Rh103.h5
+ Reading Rh105 from /home/kkiesling/depletion/endfb71_hdf5/Rh105.h5
+ Reading Pd102 from /home/kkiesling/depletion/endfb71_hdf5/Pd102.h5
+ Reading Pd104 from /home/kkiesling/depletion/endfb71_hdf5/Pd104.h5
+ Reading Pd105 from /home/kkiesling/depletion/endfb71_hdf5/Pd105.h5
+ Reading Pd106 from /home/kkiesling/depletion/endfb71_hdf5/Pd106.h5
+ Reading Pd107 from /home/kkiesling/depletion/endfb71_hdf5/Pd107.h5
+ Reading Pd108 from /home/kkiesling/depletion/endfb71_hdf5/Pd108.h5
+ Reading Pd110 from /home/kkiesling/depletion/endfb71_hdf5/Pd110.h5
+ Reading Ag107 from /home/kkiesling/depletion/endfb71_hdf5/Ag107.h5
+ Reading Ag109 from /home/kkiesling/depletion/endfb71_hdf5/Ag109.h5
+ Reading Ag110_m1 from /home/kkiesling/depletion/endfb71_hdf5/Ag110_m1.h5
+ Reading Ag111 from /home/kkiesling/depletion/endfb71_hdf5/Ag111.h5
+ Reading Cd106 from /home/kkiesling/depletion/endfb71_hdf5/Cd106.h5
+ WARNING: Negative value(s) found on probability table for nuclide Cd106 at 250K
+ WARNING: Negative value(s) found on probability table for nuclide Cd106 at 294K
+ WARNING: Negative value(s) found on probability table for nuclide Cd106 at 600K
+ WARNING: Negative value(s) found on probability table for nuclide Cd106 at 900K
+ WARNING: Negative value(s) found on probability table for nuclide Cd106 at
+          1200K
+ WARNING: Negative value(s) found on probability table for nuclide Cd106 at
+          2500K
+ Reading Cd108 from /home/kkiesling/depletion/endfb71_hdf5/Cd108.h5
+ Reading Cd110 from /home/kkiesling/depletion/endfb71_hdf5/Cd110.h5
+ Reading Cd111 from /home/kkiesling/depletion/endfb71_hdf5/Cd111.h5
+ Reading Cd112 from /home/kkiesling/depletion/endfb71_hdf5/Cd112.h5
+ Reading Cd113 from /home/kkiesling/depletion/endfb71_hdf5/Cd113.h5
+ Reading Cd114 from /home/kkiesling/depletion/endfb71_hdf5/Cd114.h5
+ Reading Cd115_m1 from /home/kkiesling/depletion/endfb71_hdf5/Cd115_m1.h5
+ Reading Cd116 from /home/kkiesling/depletion/endfb71_hdf5/Cd116.h5
+ Reading In113 from /home/kkiesling/depletion/endfb71_hdf5/In113.h5
+ Reading In115 from /home/kkiesling/depletion/endfb71_hdf5/In115.h5
+ Reading Sn113 from /home/kkiesling/depletion/endfb71_hdf5/Sn113.h5
+ Reading Sn123 from /home/kkiesling/depletion/endfb71_hdf5/Sn123.h5
+ WARNING: Negative value(s) found on probability table for nuclide Sn123 at 250K
+ WARNING: Negative value(s) found on probability table for nuclide Sn123 at 294K
+ WARNING: Negative value(s) found on probability table for nuclide Sn123 at 600K
+ WARNING: Negative value(s) found on probability table for nuclide Sn123 at 900K
+ WARNING: Negative value(s) found on probability table for nuclide Sn123 at
+          1200K
+ WARNING: Negative value(s) found on probability table for nuclide Sn123 at
+          2500K
+ Reading Sn125 from /home/kkiesling/depletion/endfb71_hdf5/Sn125.h5
+ Reading Sn126 from /home/kkiesling/depletion/endfb71_hdf5/Sn126.h5
+ Reading Sb121 from /home/kkiesling/depletion/endfb71_hdf5/Sb121.h5
+ Reading Sb123 from /home/kkiesling/depletion/endfb71_hdf5/Sb123.h5
+ Reading Sb124 from /home/kkiesling/depletion/endfb71_hdf5/Sb124.h5
+ Reading Sb125 from /home/kkiesling/depletion/endfb71_hdf5/Sb125.h5
+ Reading Sb126 from /home/kkiesling/depletion/endfb71_hdf5/Sb126.h5
+ Reading Te120 from /home/kkiesling/depletion/endfb71_hdf5/Te120.h5
+ WARNING: Negative value(s) found on probability table for nuclide Te120 at 600K
+ WARNING: Negative value(s) found on probability table for nuclide Te120 at 900K
+ WARNING: Negative value(s) found on probability table for nuclide Te120 at
+          1200K
+ WARNING: Negative value(s) found on probability table for nuclide Te120 at
+          2500K
+ Reading Te122 from /home/kkiesling/depletion/endfb71_hdf5/Te122.h5
+ Reading Te123 from /home/kkiesling/depletion/endfb71_hdf5/Te123.h5
+ Reading Te124 from /home/kkiesling/depletion/endfb71_hdf5/Te124.h5
+ Reading Te125 from /home/kkiesling/depletion/endfb71_hdf5/Te125.h5
+ Reading Te126 from /home/kkiesling/depletion/endfb71_hdf5/Te126.h5
+ Reading Te127_m1 from /home/kkiesling/depletion/endfb71_hdf5/Te127_m1.h5
+ Reading Te128 from /home/kkiesling/depletion/endfb71_hdf5/Te128.h5
+ Reading Te129_m1 from /home/kkiesling/depletion/endfb71_hdf5/Te129_m1.h5
+ Reading Te130 from /home/kkiesling/depletion/endfb71_hdf5/Te130.h5
+ Reading Te132 from /home/kkiesling/depletion/endfb71_hdf5/Te132.h5
+ Reading I127 from /home/kkiesling/depletion/endfb71_hdf5/I127.h5
+ Reading I129 from /home/kkiesling/depletion/endfb71_hdf5/I129.h5
+ Reading I130 from /home/kkiesling/depletion/endfb71_hdf5/I130.h5
+ Reading I131 from /home/kkiesling/depletion/endfb71_hdf5/I131.h5
+ WARNING: Negative value(s) found on probability table for nuclide I131 at 250K
+ WARNING: Negative value(s) found on probability table for nuclide I131 at 294K
+ WARNING: Negative value(s) found on probability table for nuclide I131 at 600K
+ WARNING: Negative value(s) found on probability table for nuclide I131 at 900K
+ WARNING: Negative value(s) found on probability table for nuclide I131 at 1200K
+ WARNING: Negative value(s) found on probability table for nuclide I131 at 2500K
+ Reading I135 from /home/kkiesling/depletion/endfb71_hdf5/I135.h5
+ Reading Xe123 from /home/kkiesling/depletion/endfb71_hdf5/Xe123.h5
+ Reading Xe124 from /home/kkiesling/depletion/endfb71_hdf5/Xe124.h5
+ Reading Xe126 from /home/kkiesling/depletion/endfb71_hdf5/Xe126.h5
+ Reading Xe128 from /home/kkiesling/depletion/endfb71_hdf5/Xe128.h5
+ Reading Xe129 from /home/kkiesling/depletion/endfb71_hdf5/Xe129.h5
+ Reading Xe130 from /home/kkiesling/depletion/endfb71_hdf5/Xe130.h5
+ Reading Xe131 from /home/kkiesling/depletion/endfb71_hdf5/Xe131.h5
+ Reading Xe132 from /home/kkiesling/depletion/endfb71_hdf5/Xe132.h5
+ Reading Xe133 from /home/kkiesling/depletion/endfb71_hdf5/Xe133.h5
+ WARNING: Negative value(s) found on probability table for nuclide Xe133 at
+          2500K
+ Reading Xe134 from /home/kkiesling/depletion/endfb71_hdf5/Xe134.h5
+ Reading Xe135 from /home/kkiesling/depletion/endfb71_hdf5/Xe135.h5
+ Reading Xe136 from /home/kkiesling/depletion/endfb71_hdf5/Xe136.h5
+ Reading Cs133 from /home/kkiesling/depletion/endfb71_hdf5/Cs133.h5
+ Reading Cs134 from /home/kkiesling/depletion/endfb71_hdf5/Cs134.h5
+ Reading Cs135 from /home/kkiesling/depletion/endfb71_hdf5/Cs135.h5
+ Reading Cs136 from /home/kkiesling/depletion/endfb71_hdf5/Cs136.h5
+ WARNING: Negative value(s) found on probability table for nuclide Cs136 at 250K
+ WARNING: Negative value(s) found on probability table for nuclide Cs136 at 294K
+ WARNING: Negative value(s) found on probability table for nuclide Cs136 at 600K
+ WARNING: Negative value(s) found on probability table for nuclide Cs136 at 900K
+ WARNING: Negative value(s) found on probability table for nuclide Cs136 at
+          1200K
+ WARNING: Negative value(s) found on probability table for nuclide Cs136 at
+          2500K
+ Reading Cs137 from /home/kkiesling/depletion/endfb71_hdf5/Cs137.h5
+ Reading Ba130 from /home/kkiesling/depletion/endfb71_hdf5/Ba130.h5
+ Reading Ba132 from /home/kkiesling/depletion/endfb71_hdf5/Ba132.h5
+ Reading Ba133 from /home/kkiesling/depletion/endfb71_hdf5/Ba133.h5
+ Reading Ba134 from /home/kkiesling/depletion/endfb71_hdf5/Ba134.h5
+ Reading Ba135 from /home/kkiesling/depletion/endfb71_hdf5/Ba135.h5
+ Reading Ba136 from /home/kkiesling/depletion/endfb71_hdf5/Ba136.h5
+ Reading Ba137 from /home/kkiesling/depletion/endfb71_hdf5/Ba137.h5
+ Reading Ba138 from /home/kkiesling/depletion/endfb71_hdf5/Ba138.h5
+ Reading Ba140 from /home/kkiesling/depletion/endfb71_hdf5/Ba140.h5
+ Reading La138 from /home/kkiesling/depletion/endfb71_hdf5/La138.h5
+ Reading La139 from /home/kkiesling/depletion/endfb71_hdf5/La139.h5
+ Reading La140 from /home/kkiesling/depletion/endfb71_hdf5/La140.h5
+ Reading Ce136 from /home/kkiesling/depletion/endfb71_hdf5/Ce136.h5
+ Reading Ce138 from /home/kkiesling/depletion/endfb71_hdf5/Ce138.h5
+ Reading Ce139 from /home/kkiesling/depletion/endfb71_hdf5/Ce139.h5
+ Reading Ce140 from /home/kkiesling/depletion/endfb71_hdf5/Ce140.h5
+ Reading Ce141 from /home/kkiesling/depletion/endfb71_hdf5/Ce141.h5
+ Reading Ce142 from /home/kkiesling/depletion/endfb71_hdf5/Ce142.h5
+ Reading Ce143 from /home/kkiesling/depletion/endfb71_hdf5/Ce143.h5
+ Reading Ce144 from /home/kkiesling/depletion/endfb71_hdf5/Ce144.h5
+ Reading Pr141 from /home/kkiesling/depletion/endfb71_hdf5/Pr141.h5
+ Reading Pr142 from /home/kkiesling/depletion/endfb71_hdf5/Pr142.h5
+ Reading Pr143 from /home/kkiesling/depletion/endfb71_hdf5/Pr143.h5
+ Reading Nd142 from /home/kkiesling/depletion/endfb71_hdf5/Nd142.h5
+ Reading Nd143 from /home/kkiesling/depletion/endfb71_hdf5/Nd143.h5
+ Reading Nd144 from /home/kkiesling/depletion/endfb71_hdf5/Nd144.h5
+ Reading Nd145 from /home/kkiesling/depletion/endfb71_hdf5/Nd145.h5
+ Reading Nd146 from /home/kkiesling/depletion/endfb71_hdf5/Nd146.h5
+ Reading Nd147 from /home/kkiesling/depletion/endfb71_hdf5/Nd147.h5
+ Reading Nd148 from /home/kkiesling/depletion/endfb71_hdf5/Nd148.h5
+ Reading Nd150 from /home/kkiesling/depletion/endfb71_hdf5/Nd150.h5
+ Reading Pm147 from /home/kkiesling/depletion/endfb71_hdf5/Pm147.h5
+ Reading Pm148 from /home/kkiesling/depletion/endfb71_hdf5/Pm148.h5
+ Reading Pm148_m1 from /home/kkiesling/depletion/endfb71_hdf5/Pm148_m1.h5
+ Reading Pm149 from /home/kkiesling/depletion/endfb71_hdf5/Pm149.h5
+ Reading Pm151 from /home/kkiesling/depletion/endfb71_hdf5/Pm151.h5
+ Reading Sm144 from /home/kkiesling/depletion/endfb71_hdf5/Sm144.h5
+ Reading Sm147 from /home/kkiesling/depletion/endfb71_hdf5/Sm147.h5
+ Reading Sm148 from /home/kkiesling/depletion/endfb71_hdf5/Sm148.h5
+ Reading Sm149 from /home/kkiesling/depletion/endfb71_hdf5/Sm149.h5
+ Reading Sm150 from /home/kkiesling/depletion/endfb71_hdf5/Sm150.h5
+ Reading Sm151 from /home/kkiesling/depletion/endfb71_hdf5/Sm151.h5
+ Reading Sm152 from /home/kkiesling/depletion/endfb71_hdf5/Sm152.h5
+ Reading Sm153 from /home/kkiesling/depletion/endfb71_hdf5/Sm153.h5
+ Reading Sm154 from /home/kkiesling/depletion/endfb71_hdf5/Sm154.h5
+ Reading Eu151 from /home/kkiesling/depletion/endfb71_hdf5/Eu151.h5
+ Reading Eu152 from /home/kkiesling/depletion/endfb71_hdf5/Eu152.h5
+ Reading Eu153 from /home/kkiesling/depletion/endfb71_hdf5/Eu153.h5
+ Reading Eu154 from /home/kkiesling/depletion/endfb71_hdf5/Eu154.h5
+ Reading Eu155 from /home/kkiesling/depletion/endfb71_hdf5/Eu155.h5
+ Reading Eu156 from /home/kkiesling/depletion/endfb71_hdf5/Eu156.h5
+ WARNING: Negative value(s) found on probability table for nuclide Eu156 at 250K
+ WARNING: Negative value(s) found on probability table for nuclide Eu156 at 294K
+ WARNING: Negative value(s) found on probability table for nuclide Eu156 at 600K
+ WARNING: Negative value(s) found on probability table for nuclide Eu156 at 900K
+ WARNING: Negative value(s) found on probability table for nuclide Eu156 at
+          1200K
+ WARNING: Negative value(s) found on probability table for nuclide Eu156 at
+          2500K
+ Reading Eu157 from /home/kkiesling/depletion/endfb71_hdf5/Eu157.h5
+ Reading Gd152 from /home/kkiesling/depletion/endfb71_hdf5/Gd152.h5
+ Reading Gd153 from /home/kkiesling/depletion/endfb71_hdf5/Gd153.h5
+ Reading Gd154 from /home/kkiesling/depletion/endfb71_hdf5/Gd154.h5
+ Reading Gd155 from /home/kkiesling/depletion/endfb71_hdf5/Gd155.h5
+ Reading Gd156 from /home/kkiesling/depletion/endfb71_hdf5/Gd156.h5
+ Reading Gd157 from /home/kkiesling/depletion/endfb71_hdf5/Gd157.h5
+ Reading Gd158 from /home/kkiesling/depletion/endfb71_hdf5/Gd158.h5
+ Reading Gd160 from /home/kkiesling/depletion/endfb71_hdf5/Gd160.h5
+ Reading Tb159 from /home/kkiesling/depletion/endfb71_hdf5/Tb159.h5
+ Reading Tb160 from /home/kkiesling/depletion/endfb71_hdf5/Tb160.h5
+ Reading Dy156 from /home/kkiesling/depletion/endfb71_hdf5/Dy156.h5
+ Reading Dy158 from /home/kkiesling/depletion/endfb71_hdf5/Dy158.h5
+ Reading Dy160 from /home/kkiesling/depletion/endfb71_hdf5/Dy160.h5
+ Reading Dy161 from /home/kkiesling/depletion/endfb71_hdf5/Dy161.h5
+ Reading Dy162 from /home/kkiesling/depletion/endfb71_hdf5/Dy162.h5
+ Reading Dy163 from /home/kkiesling/depletion/endfb71_hdf5/Dy163.h5
+ Reading Dy164 from /home/kkiesling/depletion/endfb71_hdf5/Dy164.h5
+ Reading Ho165 from /home/kkiesling/depletion/endfb71_hdf5/Ho165.h5
+ Reading Ho166_m1 from /home/kkiesling/depletion/endfb71_hdf5/Ho166_m1.h5
+ Reading Er162 from /home/kkiesling/depletion/endfb71_hdf5/Er162.h5
+ Reading Er164 from /home/kkiesling/depletion/endfb71_hdf5/Er164.h5
+ Reading Er166 from /home/kkiesling/depletion/endfb71_hdf5/Er166.h5
+ Reading Er167 from /home/kkiesling/depletion/endfb71_hdf5/Er167.h5
+ Reading Er168 from /home/kkiesling/depletion/endfb71_hdf5/Er168.h5
+ Reading Er170 from /home/kkiesling/depletion/endfb71_hdf5/Er170.h5
+ Reading Tm168 from /home/kkiesling/depletion/endfb71_hdf5/Tm168.h5
+ Reading Tm169 from /home/kkiesling/depletion/endfb71_hdf5/Tm169.h5
+ Reading Tm170 from /home/kkiesling/depletion/endfb71_hdf5/Tm170.h5
+ Reading Lu175 from /home/kkiesling/depletion/endfb71_hdf5/Lu175.h5
+ Reading Lu176 from /home/kkiesling/depletion/endfb71_hdf5/Lu176.h5
+ Reading Hf174 from /home/kkiesling/depletion/endfb71_hdf5/Hf174.h5
+ Reading Hf176 from /home/kkiesling/depletion/endfb71_hdf5/Hf176.h5
+ Reading Hf177 from /home/kkiesling/depletion/endfb71_hdf5/Hf177.h5
+ Reading Hf178 from /home/kkiesling/depletion/endfb71_hdf5/Hf178.h5
+ Reading Hf179 from /home/kkiesling/depletion/endfb71_hdf5/Hf179.h5
+ Reading Hf180 from /home/kkiesling/depletion/endfb71_hdf5/Hf180.h5
+ Reading Ta180 from /home/kkiesling/depletion/endfb71_hdf5/Ta180.h5
+ Reading Ta181 from /home/kkiesling/depletion/endfb71_hdf5/Ta181.h5
+ Reading Ta182 from /home/kkiesling/depletion/endfb71_hdf5/Ta182.h5
+ Reading W180 from /home/kkiesling/depletion/endfb71_hdf5/W180.h5
+ Reading W182 from /home/kkiesling/depletion/endfb71_hdf5/W182.h5
+ Reading W183 from /home/kkiesling/depletion/endfb71_hdf5/W183.h5
+ Reading W184 from /home/kkiesling/depletion/endfb71_hdf5/W184.h5
+ Reading W186 from /home/kkiesling/depletion/endfb71_hdf5/W186.h5
+ Reading Re185 from /home/kkiesling/depletion/endfb71_hdf5/Re185.h5
+ Reading Re187 from /home/kkiesling/depletion/endfb71_hdf5/Re187.h5
+ Reading Ir191 from /home/kkiesling/depletion/endfb71_hdf5/Ir191.h5
+ Reading Ir193 from /home/kkiesling/depletion/endfb71_hdf5/Ir193.h5
+ Reading Au197 from /home/kkiesling/depletion/endfb71_hdf5/Au197.h5
+ Reading Hg196 from /home/kkiesling/depletion/endfb71_hdf5/Hg196.h5
+ Reading Hg198 from /home/kkiesling/depletion/endfb71_hdf5/Hg198.h5
+ Reading Hg199 from /home/kkiesling/depletion/endfb71_hdf5/Hg199.h5
+ Reading Hg200 from /home/kkiesling/depletion/endfb71_hdf5/Hg200.h5
+ Reading Hg201 from /home/kkiesling/depletion/endfb71_hdf5/Hg201.h5
+ Reading Hg202 from /home/kkiesling/depletion/endfb71_hdf5/Hg202.h5
+ Reading Hg204 from /home/kkiesling/depletion/endfb71_hdf5/Hg204.h5
+ Reading Tl203 from /home/kkiesling/depletion/endfb71_hdf5/Tl203.h5
+ Reading Tl205 from /home/kkiesling/depletion/endfb71_hdf5/Tl205.h5
+ Reading Pb204 from /home/kkiesling/depletion/endfb71_hdf5/Pb204.h5
+ Reading Pb206 from /home/kkiesling/depletion/endfb71_hdf5/Pb206.h5
+ Reading Pb207 from /home/kkiesling/depletion/endfb71_hdf5/Pb207.h5
+ Reading Pb208 from /home/kkiesling/depletion/endfb71_hdf5/Pb208.h5
+ Reading Bi209 from /home/kkiesling/depletion/endfb71_hdf5/Bi209.h5
+ Reading Ra223 from /home/kkiesling/depletion/endfb71_hdf5/Ra223.h5
+ Reading Ra224 from /home/kkiesling/depletion/endfb71_hdf5/Ra224.h5
+ Reading Ra225 from /home/kkiesling/depletion/endfb71_hdf5/Ra225.h5
+ Reading Ra226 from /home/kkiesling/depletion/endfb71_hdf5/Ra226.h5
+ Reading Ac225 from /home/kkiesling/depletion/endfb71_hdf5/Ac225.h5
+ Reading Ac226 from /home/kkiesling/depletion/endfb71_hdf5/Ac226.h5
+ Reading Ac227 from /home/kkiesling/depletion/endfb71_hdf5/Ac227.h5
+ Reading Th227 from /home/kkiesling/depletion/endfb71_hdf5/Th227.h5
+ Reading Th228 from /home/kkiesling/depletion/endfb71_hdf5/Th228.h5
+ Reading Th229 from /home/kkiesling/depletion/endfb71_hdf5/Th229.h5
+ Reading Th233 from /home/kkiesling/depletion/endfb71_hdf5/Th233.h5
+ Reading Pa229 from /home/kkiesling/depletion/endfb71_hdf5/Pa229.h5
+ Reading Pa230 from /home/kkiesling/depletion/endfb71_hdf5/Pa230.h5
+ Reading U230 from /home/kkiesling/depletion/endfb71_hdf5/U230.h5
+ Reading U231 from /home/kkiesling/depletion/endfb71_hdf5/U231.h5
+ Reading U240 from /home/kkiesling/depletion/endfb71_hdf5/U240.h5
+ Reading U241 from /home/kkiesling/depletion/endfb71_hdf5/U241.h5
+ Reading Np234 from /home/kkiesling/depletion/endfb71_hdf5/Np234.h5
+ Reading Np235 from /home/kkiesling/depletion/endfb71_hdf5/Np235.h5
+ Reading Pu237 from /home/kkiesling/depletion/endfb71_hdf5/Pu237.h5
+ Reading Pu244 from /home/kkiesling/depletion/endfb71_hdf5/Pu244.h5
+ Reading Pu246 from /home/kkiesling/depletion/endfb71_hdf5/Pu246.h5
+ Reading Am240 from /home/kkiesling/depletion/endfb71_hdf5/Am240.h5
+ Reading Am244 from /home/kkiesling/depletion/endfb71_hdf5/Am244.h5
+ Reading Am244_m1 from /home/kkiesling/depletion/endfb71_hdf5/Am244_m1.h5
+ Reading Cm240 from /home/kkiesling/depletion/endfb71_hdf5/Cm240.h5
+ Reading Cm241 from /home/kkiesling/depletion/endfb71_hdf5/Cm241.h5
+ Reading Cm243 from /home/kkiesling/depletion/endfb71_hdf5/Cm243.h5
+ Reading Cm245 from /home/kkiesling/depletion/endfb71_hdf5/Cm245.h5
+ Reading Cm246 from /home/kkiesling/depletion/endfb71_hdf5/Cm246.h5
+ Reading Cm247 from /home/kkiesling/depletion/endfb71_hdf5/Cm247.h5
+ Reading Cm248 from /home/kkiesling/depletion/endfb71_hdf5/Cm248.h5
+ Reading Cm249 from /home/kkiesling/depletion/endfb71_hdf5/Cm249.h5
+ Reading Cm250 from /home/kkiesling/depletion/endfb71_hdf5/Cm250.h5
+ Reading Bk245 from /home/kkiesling/depletion/endfb71_hdf5/Bk245.h5
+ Reading Bk246 from /home/kkiesling/depletion/endfb71_hdf5/Bk246.h5
+ Reading Bk247 from /home/kkiesling/depletion/endfb71_hdf5/Bk247.h5
+ Reading Bk248 from /home/kkiesling/depletion/endfb71_hdf5/Bk248.h5
+ Reading Bk249 from /home/kkiesling/depletion/endfb71_hdf5/Bk249.h5
+ Reading Bk250 from /home/kkiesling/depletion/endfb71_hdf5/Bk250.h5
+ Reading Cf246 from /home/kkiesling/depletion/endfb71_hdf5/Cf246.h5
+ Reading Cf248 from /home/kkiesling/depletion/endfb71_hdf5/Cf248.h5
+ Reading Cf249 from /home/kkiesling/depletion/endfb71_hdf5/Cf249.h5
+ Reading Cf250 from /home/kkiesling/depletion/endfb71_hdf5/Cf250.h5
+ WARNING: Negative value(s) found on probability table for nuclide Cf250 at 250K
+ WARNING: Negative value(s) found on probability table for nuclide Cf250 at 294K
+ WARNING: Negative value(s) found on probability table for nuclide Cf250 at 900K
+ WARNING: Negative value(s) found on probability table for nuclide Cf250 at
+          1200K
+ Reading Cf251 from /home/kkiesling/depletion/endfb71_hdf5/Cf251.h5
+ Reading Cf252 from /home/kkiesling/depletion/endfb71_hdf5/Cf252.h5
+ Reading Cf253 from /home/kkiesling/depletion/endfb71_hdf5/Cf253.h5
+ Reading Cf254 from /home/kkiesling/depletion/endfb71_hdf5/Cf254.h5
+ Reading Es251 from /home/kkiesling/depletion/endfb71_hdf5/Es251.h5
+ Reading Es252 from /home/kkiesling/depletion/endfb71_hdf5/Es252.h5
+ Reading Es253 from /home/kkiesling/depletion/endfb71_hdf5/Es253.h5
+ Reading Es254 from /home/kkiesling/depletion/endfb71_hdf5/Es254.h5
+ Reading Es254_m1 from /home/kkiesling/depletion/endfb71_hdf5/Es254_m1.h5
+ Reading Es255 from /home/kkiesling/depletion/endfb71_hdf5/Es255.h5
+ Reading Fm255 from /home/kkiesling/depletion/endfb71_hdf5/Fm255.h5
+ Maximum neutron transport energy: 20000000 eV for O17
+ Initializing source particles...
+
+ ====================>     K EIGENVALUE SIMULATION     <====================
+
+  Bat./Gen.      k            Average k
+  =========   ========   ====================
+        1/1    1.16219
+        2/1    1.16489
+        3/1    1.16066
+        4/1    1.16493
