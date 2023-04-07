@@ -95,7 +95,7 @@ for nuc in sorted(all_nuclides):
     h2_diff = (conc_hy2 - conc_dir) / conc_dir * 100
     h1_diff = (conc_hy1 - conc_dir) / conc_dir * 100
 
-    # plot absolute
+    # plot diff
     fig, ax = plt.subplots()
     #ax.plot(time/day, flux_diff, 'kx', label="flux")
     ax.plot(time/day, h1_diff, 'g+', label="hybrid 1")
@@ -109,40 +109,6 @@ for nuc in sorted(all_nuclides):
     plt.savefig(f"figures/{args.nuclides}/{egroup}/{nuc}-relative.png")
     plt.close()
 
-
-# ###############################################################################
-# #                      Plot K-eff
-# ###############################################################################
-# def plot_keff_diff(results, name):
-#     # direct tally results
-#     _, keff_dir = res_dir.get_keff()
-#     # results to compare
-#     time, keff_hy1 = res_hy1.get_keff()
-#     time2, keff_hy2 = res_hy2.get_keff()
-#     time, keff_flux = res_flux.get_keff()
-
-#     #k_diff = (keff_hy1 - keff_dir) * 1e5
-#     fig, ax = plt.subplots()
-#     ax.errorbar(time/day, keff_dir[:,0], yerr=2 * abs(keff_dir[:,1]),
-#                 fmt='rx', ecolor='black', label='direct', markersize=8, capsize=3)
-#     ax.errorbar(time/day, keff_hy1[:,0], yerr=2 * abs(keff_hy1[:,1]),
-#                 fmt='g+', ecolor='black', label='hybrid 1', markersize=8, capsize=3)
-#     ax.errorbar(time2/day, keff_hy2[:,0], yerr=2 * abs(keff_hy2[:,1]),
-#                 fmt='m*', ecolor='black', label='hybrid 2', markersize=8, capsize=3)
-#     ax.errorbar(time/day, keff_flux[:,0], yerr=2 * abs(keff_flux[:,1]),
-#                 fmt='b.', ecolor='black', label='flux', markersize=8, capsize=3)
-#     #ax.axhline(color='k', linestyle='--')
-#     ax.set_xlabel("Time [days]")
-#     ax.set_ylabel("k_eff")
-#     ax.grid(True)
-#     ax.legend()
-#     plt.tight_layout()
-#     plt.savefig("figures/keff_{}.png".format(egroup))
-#     plt.close()
-
-# # plot_keff_diff(res_flux, 'flux')
-# plot_keff_diff(res_hy1, 'hybrid 1')
-# # plot_keff_diff(res_hy2, 'hybrid 2')
 
 # ###############################################################################
 # #             Plot EOL concentration diffs compared to direct tally
