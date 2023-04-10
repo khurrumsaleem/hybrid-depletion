@@ -30,13 +30,14 @@ for egroup in groups:
         hybrid2_results = openmc.deplete.Results(root_path.format(run_info=f"hybrid2/{nucs}/{egroup}"))
         print("... loading complete")
 
-        ###############################################################################
-        #                      Plot K-eff regardless
-        ###############################################################################
+        ################################################################
+        #                         Plot K-eff
+        ################################################################
 
         _, keff_hy1 = hybrid1_results.get_keff()
         time, keff_hy2 = hybrid2_results.get_keff()
 
+        # absolute k-effective
         fig, ax = plt.subplots()
         ax.errorbar(time/day, keff_dir[:,0], yerr=2 * abs(keff_dir[:,1]),
                     fmt='bo', ecolor='black', label='direct', capsize=3)
@@ -47,16 +48,17 @@ for egroup in groups:
         ax.errorbar(time/day, keff_hy2[:,0], yerr=2 * abs(keff_hy2[:,1]),
                     fmt='m*', ecolor='black', label='hybrid 2', capsize=3)
 
-        #ax.axhline(color='k', linestyle='--')
         ax.set_xlabel("Time [days]")
         ax.set_ylabel("k_eff")
         ax.set_title(f"K-effective, E={egroup}, {nucs}")
+        ax.set_ylim([0.7, 1.4])
         ax.grid(True)
         ax.legend()
         plt.tight_layout()
         plt.savefig(f"figures/keff/keff_{nucs}_{egroup}.png")
         plt.close()
 
+        # relative difference
         h1_diff = (keff_hy1[:,0] - keff_dir[:,0]) * 1e5
         h2_diff = (keff_hy2[:,0] - keff_dir[:,0]) * 1e5
         h1_diff_err = np.sqrt((keff_hy1[:,1]**2 + keff_dir[:,1]**2)) * 1e5
@@ -69,6 +71,10 @@ for egroup in groups:
         ax.set_xlabel("Time [days]")
         ax.set_ylabel("k_eff diff, pcm")
         ax.set_title(f"K-effective diff, E={egroup}, {nucs}")
+        if egroup in [300, 500]:
+            ax.set_ylim([-800, 6000])
+        else:
+            ax.set_ylim([-200, 150])
         ax.legend()
         ax.grid(True, which='both')
         plt.tight_layout()
