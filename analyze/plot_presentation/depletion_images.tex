@@ -1,0 +1,521 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 2.0 (March 8, 2022)
+%
+% This template originates from:
+% https://www.LaTeXTemplates.com
+%
+% Author:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+	11pt, % Set the default font size, options include: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt
+	%t, % Uncomment to vertically align all slide content to the top of the slide, rather than the default centered
+	aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which matches the aspect ratio of 1080p and 4K screens and projectors
+]{beamer}
+
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule for better rules in tables
+\usepackage{pgffor}  % for iterating over all nuclides
+%----------------------------------------------------------------------------------------
+%	SELECT LAYOUT THEME
+%----------------------------------------------------------------------------------------
+
+% Beamer comes with a number of default layout themes which change the colors and layouts of slides. Below is a list of all themes available, uncomment each in turn to see what they look like.
+
+\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+%----------------------------------------------------------------------------------------
+%	SELECT COLOR THEME
+%----------------------------------------------------------------------------------------
+
+% Beamer comes with a number of color themes that can be applied to any layout theme to change its colors. Uncomment each of these in turn to see how they change the colors of your selected layout theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{monarca}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{spruce}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%----------------------------------------------------------------------------------------
+%	SELECT FONT THEME & FONTS
+%----------------------------------------------------------------------------------------
+
+% Beamer comes with several font themes to easily change the fonts used in various parts of the presentation. Review the comments beside each one to decide if you would like to use it. Note that additional options can be specified for several of these font themes, consult the beamer documentation for more information.
+
+\usefonttheme{default} % Typeset using the default sans serif font
+%\usefonttheme{serif} % Typeset using the default serif font (make sure a sans font isn't being set as the default font if you use this option!)
+%\usefonttheme{structurebold} % Typeset important structure text (titles, headlines, footlines, sidebar, etc) in bold
+%\usefonttheme{structureitalicserif} % Typeset important structure text (titles, headlines, footlines, sidebar, etc) in italic serif
+%\usefonttheme{structuresmallcapsserif} % Typeset important structure text (titles, headlines, footlines, sidebar, etc) in small caps serif
+
+%------------------------------------------------
+
+%\usepackage{mathptmx} % Use the Times font for serif text
+\usepackage{palatino} % Use the Palatino font for serif text
+
+%\usepackage{helvet} % Use the Helvetica font for sans serif text
+\usepackage[default]{opensans} % Use the Open Sans font for sans serif text
+%\usepackage[default]{FiraSans} % Use the Fira Sans font for sans serif text
+%\usepackage[default]{lato} % Use the Lato font for sans serif text
+
+%----------------------------------------------------------------------------------------
+%	SELECT INNER THEME
+%----------------------------------------------------------------------------------------
+
+% Inner themes change the styling of internal slide elements, for example: bullet points, blocks, bibliography entries, title pages, theorems, etc. Uncomment each theme in turn to see what changes it makes to your presentation.
+
+%\useinnertheme{default}
+\useinnertheme{circles}
+%\useinnertheme{rectangles}
+%\useinnertheme{rounded}
+%\useinnertheme{inmargin}
+
+%----------------------------------------------------------------------------------------
+%	SELECT OUTER THEME
+%----------------------------------------------------------------------------------------
+
+% Outer themes change the overall layout of slides, such as: header and footer lines, sidebars and slide titles. Uncomment each theme in turn to see what changes it makes to your presentation.
+
+%\useoutertheme{default}
+%\useoutertheme{infolines}
+%\useoutertheme{miniframes}
+%\useoutertheme{smoothbars}
+%\useoutertheme{sidebar}
+%\useoutertheme{split}
+%\useoutertheme{shadow}
+%\useoutertheme{tree}
+%\useoutertheme{smoothtree}
+
+%\setbeamertemplate{footline} % Uncomment this line to remove the footer line in all slides
+%\setbeamertemplate{footline}[page number] % Uncomment this line to replace the footer line in all slides with a simple slide count
+
+%\setbeamertemplate{navigation symbols}{} % Uncomment this line to remove the navigation symbols from the bottom of all slides
+
+% \AtBeginSection[]{
+%   \begin{frame}
+%   \vfill
+%   \centering
+%   \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+%     \usebeamerfont{title}\insertsectionhead\par%
+%   \end{beamercolorbox}
+%   \vfill
+%   \end{frame}
+% }
+\AtBeginSubsection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\\\insertsubsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{Hybrid Depletion Results} % The short title in the optional parameter appears at the bottom of every slide, the full title in the main parameter is only on the title page
+
+%\subtitle{Optional Subtitle} % Presentation subtitle, remove this command if a subtitle isn't required
+
+%\author[James Cook \and Roald Amundsen]{Capt. James Cook \and Roald Amundsen} % Presenter name(s), the optional parameter can contain a shortened version to appear on the bottom of every slide, while the main parameter will appear on the title slide
+
+%\institute[UC]{University of Cambridge \\ \smallskip \textit{james@LaTeXTemplates.com}} % Your institution, the optional parameter can be used for the institution shorthand and will appear on the bottom of every slide after author names, while the required parameter is used on the title slide and can include your email address or additional information on separate lines
+
+%\date[\today]{International Symposium of Explorers \\ \today} % Presentation date or conference/meeting name, the optional parameter can contain a shortened version to appear on the bottom of every slide, while the required parameter value is output to the title slide
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\titlepage % Output the title slide, automatically created using the text entered in the PRESENTATION INFORMATION block above
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS SLIDE
+%----------------------------------------------------------------------------------------
+
+% The table of contents outputs the sections and subsections that appear in your presentation, specified with the standard \section and \subsection commands. You may either display all sections and subsections on one slide with \tableofcontents, or display each section at a time on subsequent slides with \tableofcontents[pausesections]. The latter is useful if you want to step through each section and mention what you will discuss.
+
+\begin{frame}
+	\frametitle{Results breakdown} % Slide title, remove this command for no title
+
+	\tableofcontents % Output the table of contents (all sections on one slide)
+	%\tableofcontents[pausesections] % Output the table of contents (break sections up across separate slides)
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	K-Effective
+%----------------------------------------------------------------------------------------
+
+\section{K-Effective} % Sections are added in order to organize your presentation into discrete blocks, all sections and subsections are automatically output to the table of contents as an overview of the talk but NOT output in the presentation as separate slides
+
+%------------------------------------------------
+
+\subsection{by Energy Group}
+
+\begin{frame}{300 Groups}
+	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+		\begin{column}{0.32\textwidth} % actinides
+			\includegraphics[width=\textwidth]{../figures/keff/keff_actinides_300.png}
+
+			\includegraphics[width=\textwidth]{../figures/keff/keff_actinides_300_diff.png}
+		\end{column}
+		\begin{column}{0.32\textwidth} % mix
+			\includegraphics[width=\textwidth]{../figures/keff/keff_mix_300.png}
+
+			\includegraphics[width=\textwidth]{../figures/keff/keff_mix_300_diff.png}
+		\end{column}
+		\begin{column}{0.32\textwidth} % all
+			\includegraphics[width=\textwidth]{../figures/keff/keff_all_300.png}
+
+			\includegraphics[width=\textwidth]{../figures/keff/keff_all_300_diff.png}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{500 Groups}
+	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+		\begin{column}{0.32\textwidth} % actinides
+			\includegraphics[width=\textwidth]{../figures/keff/keff_actinides_500.png}
+
+			\includegraphics[width=\textwidth]{../figures/keff/keff_actinides_500_diff.png}
+		\end{column}
+		\begin{column}{0.32\textwidth} % mix
+			\includegraphics[width=\textwidth]{../figures/keff/keff_mix_500.png}
+
+			\includegraphics[width=\textwidth]{../figures/keff/keff_mix_500_diff.png}
+		\end{column}
+		\begin{column}{0.32\textwidth} % all
+			\includegraphics[width=\textwidth]{../figures/keff/keff_all_500.png}
+
+			\includegraphics[width=\textwidth]{../figures/keff/keff_all_500_diff.png}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{2500 Groups}
+	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+		\begin{column}{0.32\textwidth} % actinides
+			\includegraphics[width=\textwidth]{../figures/keff/keff_actinides_2500.png}
+
+			\includegraphics[width=\textwidth]{../figures/keff/keff_actinides_2500_diff.png}
+		\end{column}
+		\begin{column}{0.32\textwidth} % mix
+			\includegraphics[width=\textwidth]{../figures/keff/keff_mix_2500.png}
+
+			\includegraphics[width=\textwidth]{../figures/keff/keff_mix_2500_diff.png}
+		\end{column}
+		\begin{column}{0.32\textwidth} % all
+			\includegraphics[width=\textwidth]{../figures/keff/keff_all_2500.png}
+
+			\includegraphics[width=\textwidth]{../figures/keff/keff_all_2500_diff.png}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{10000 Groups}
+	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+		\begin{column}{0.32\textwidth} % actinides
+			\includegraphics[width=\textwidth]{../figures/keff/keff_actinides_10000.png}
+
+			\includegraphics[width=\textwidth]{../figures/keff/keff_actinides_10000_diff.png}
+		\end{column}
+		\begin{column}{0.32\textwidth} % mix
+			\includegraphics[width=\textwidth]{../figures/keff/keff_mix_10000.png}
+
+			\includegraphics[width=\textwidth]{../figures/keff/keff_mix_10000_diff.png}
+		\end{column}
+		\begin{column}{0.32\textwidth} % all
+			\includegraphics[width=\textwidth]{../figures/keff/keff_all_10000.png}
+
+			\includegraphics[width=\textwidth]{../figures/keff/keff_all_10000_diff.png}
+		\end{column}
+	\end{columns}
+\end{frame}
+%------------------------------------------------
+
+\subsection{by Nuclide Groups}
+
+\begin{frame}{Actinides, absolute}
+	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+		\begin{column}{0.39\textwidth}
+			\includegraphics[width=\textwidth]{../figures/keff/keff_actinides_300.png}
+
+			\includegraphics[width=\textwidth]{../figures/keff/keff_actinides_500.png}
+		\end{column}
+		\begin{column}{0.39\textwidth}
+			\includegraphics[width=\textwidth]{../figures/keff/keff_actinides_2500.png}
+
+			\includegraphics[width=\textwidth]{../figures/keff/keff_actinides_10000.png}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Actinides, relative diff}
+	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+		\begin{column}{0.39\textwidth}
+			\includegraphics[width=\textwidth]{../figures/keff/keff_actinides_300_diff.png}
+
+			\includegraphics[width=\textwidth]{../figures/keff/keff_actinides_500_diff.png}
+		\end{column}
+		\begin{column}{0.39\textwidth}
+			\includegraphics[width=\textwidth]{../figures/keff/keff_actinides_2500_diff.png}
+
+			\includegraphics[width=\textwidth]{../figures/keff/keff_actinides_10000_diff.png}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Mix (FP + Actinides), absolute}
+	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+		\begin{column}{0.39\textwidth}
+			\includegraphics[width=\textwidth]{../figures/keff/keff_mix_300.png}
+
+			\includegraphics[width=\textwidth]{../figures/keff/keff_mix_500.png}
+		\end{column}
+		\begin{column}{0.39\textwidth}
+			\includegraphics[width=\textwidth]{../figures/keff/keff_mix_2500.png}
+
+			\includegraphics[width=\textwidth]{../figures/keff/keff_mix_10000.png}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Mix (FP + Actinides), relative diff}
+	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+		\begin{column}{0.39\textwidth}
+			\includegraphics[width=\textwidth]{../figures/keff/keff_mix_300_diff.png}
+
+			\includegraphics[width=\textwidth]{../figures/keff/keff_mix_500_diff.png}
+		\end{column}
+		\begin{column}{0.39\textwidth}
+			\includegraphics[width=\textwidth]{../figures/keff/keff_mix_2500_diff.png}
+
+			\includegraphics[width=\textwidth]{../figures/keff/keff_mix_10000_diff.png}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{All Nuclides, absolute}
+	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+		\begin{column}{0.39\textwidth}
+			\includegraphics[width=\textwidth]{../figures/keff/keff_all_300.png}
+
+			\includegraphics[width=\textwidth]{../figures/keff/keff_all_500.png}
+		\end{column}
+		\begin{column}{0.39\textwidth}
+			\includegraphics[width=\textwidth]{../figures/keff/keff_all_2500.png}
+
+			\includegraphics[width=\textwidth]{../figures/keff/keff_all_10000.png}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{All Nuclides, relative diff}
+	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+		\begin{column}{0.39\textwidth}
+			\includegraphics[width=\textwidth]{../figures/keff/keff_all_300_diff.png}
+
+			\includegraphics[width=\textwidth]{../figures/keff/keff_all_500_diff.png}
+		\end{column}
+		\begin{column}{0.39\textwidth}
+			\includegraphics[width=\textwidth]{../figures/keff/keff_all_2500_diff.png}
+
+			\includegraphics[width=\textwidth]{../figures/keff/keff_all_10000_diff.png}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	Nuclides
+%----------------------------------------------------------------------------------------
+
+\section{Nuclide Concentrations}
+
+\foreach \g in {300, 500, 2500, 10000} {
+	\subsection{\g~groups}
+	\foreach \n in {Am241, Am242, Am242_m1, Am243, Cm242, Cm244, Cs133, Cs135, Eu153, Eu155, Gd157, Kr83, Nd143, Nd145, Np236, Np237, Np238, Np239, Pa231, Pa232, Pa233, Pm147, Pm148_m1, Pm149, Pm151, Pr143, Pu236, Pu238, Pu239, Pu240, Pu241, Pu242, Pu243, Rh103, Rh105, Ru101, Sm149, Sm150, Sm151, Sm152, Sm153, Tc99, Th230, Th231, Th232, Th234, U232, U233, U234, U235, U236, U237, U238, U239, Xe131, Xe133, Xe135} {%
+	%\subsubsection{\n}
+	\begin{frame}{\n, \g~groups}
+		\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+			\begin{column}{0.32\textwidth} % actinides
+				\includegraphics[width=\textwidth]{../figures/actinides/\g/\n-absolute.png}
+
+				\includegraphics[width=\textwidth]{../figures/actinides/\g/\n-relative.png}
+			\end{column}
+			\begin{column}{0.32\textwidth} % mix
+				\includegraphics[width=\textwidth]{../figures/mix/\g/\n-absolute.png}
+
+				\includegraphics[width=\textwidth]{../figures/mix/\g/\n-relative.png}
+			\end{column}
+			\begin{column}{0.32\textwidth} % all
+				\includegraphics[width=\textwidth]{../figures/all/\g/\n-absolute.png}
+
+				\includegraphics[width=\textwidth]{../figures/all/\g/\n-relative.png}
+			\end{column}
+		\end{columns}
+	\end{frame}
+	}
+}
+
+\foreach \ng in {actinides, mix, all} {
+	\subsection{\ng~direct tally}
+	\foreach \n in {Am241, Am242, Am242_m1, Am243, Cm242, Cm244, Cs133, Cs135, Eu153, Eu155, Gd157, Kr83, Nd143, Nd145, Np236, Np237, Np238, Np239, Pa231, Pa232, Pa233, Pm147, Pm148_m1, Pm149, Pm151, Pr143, Pu236, Pu238, Pu239, Pu240, Pu241, Pu242, Pu243, Rh103, Rh105, Ru101, Sm149, Sm150, Sm151, Sm152, Sm153, Tc99, Th230, Th231, Th232, Th234, U232, U233, U234, U235, U236, U237, U238, U239, Xe131, Xe133, Xe135} {%
+	%\subsubsection{\n}
+	\begin{frame}{\n, \ng, absolute}
+		\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+			\begin{column}{0.39\textwidth} % actinides
+				\includegraphics[width=\textwidth]{../figures/\ng/300/\n-absolute.png}
+
+				\includegraphics[width=\textwidth]{../figures/\ng/500/\n-absolute.png}
+			\end{column}
+			\begin{column}{0.39\textwidth} % mix
+				\includegraphics[width=\textwidth]{../figures/\ng/2500/\n-absolute.png}
+
+				\includegraphics[width=\textwidth]{../figures/\ng/10000/\n-absolute.png}
+			\end{column}
+		\end{columns}
+	\end{frame}
+
+	\begin{frame}{\n, \ng, relative}
+		\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+			\begin{column}{0.39\textwidth} % actinides
+				\includegraphics[width=\textwidth]{../figures/\ng/300/\n-relative.png}
+
+				\includegraphics[width=\textwidth]{../figures/\ng/500/\n-relative.png}
+			\end{column}
+			\begin{column}{0.39\textwidth} % mix
+				\includegraphics[width=\textwidth]{../figures/\ng/2500/\n-relative.png}
+
+				\includegraphics[width=\textwidth]{../figures/\ng/10000/\n-relative.png}
+			\end{column}
+		\end{columns}
+	\end{frame}
+	}
+}
+
+\subsection{Individual Nuclide Data}
+\foreach \n in {Am241, Am242, Am242_m1, Am243, Cm242, Cm244, Cs133, Cs135, Eu153, Eu155, Gd157, Kr83, Nd143, Nd145, Np236, Np237, Np238, Np239, Pa231, Pa232, Pa233, Pm147, Pm148_m1, Pm149, Pm151, Pr143, Pu236, Pu238, Pu239, Pu240, Pu241, Pu242, Pu243, Rh103, Rh105, Ru101, Sm149, Sm150, Sm151, Sm152, Sm153, Tc99, Th230, Th231, Th232, Th234, U232, U233, U234, U235, U236, U237, U238, U239, Xe131, Xe133, Xe135} {%
+%\subsubsection{\n}
+\begin{frame}{\n, absolute}
+	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+		\begin{column}{0.25\textwidth} % actinides
+			\includegraphics[width=\textwidth]{../figures/actinides/300/\n-absolute.png}
+
+			\includegraphics[width=\textwidth]{../figures/mix/300/\n-absolute.png}
+
+			\includegraphics[width=\textwidth]{../figures/all/300/\n-absolute.png}
+		\end{column}
+		\begin{column}{0.25\textwidth} % actinides
+			\includegraphics[width=\textwidth]{../figures/actinides/500/\n-absolute.png}
+
+			\includegraphics[width=\textwidth]{../figures/mix/500/\n-absolute.png}
+
+			\includegraphics[width=\textwidth]{../figures/all/500/\n-absolute.png}
+		\end{column}
+		\begin{column}{0.25\textwidth} % actinides
+			\includegraphics[width=\textwidth]{../figures/actinides/2500/\n-absolute.png}
+
+			\includegraphics[width=\textwidth]{../figures/mix/2500/\n-absolute.png}
+
+			\includegraphics[width=\textwidth]{../figures/all/2500/\n-absolute.png}
+		\end{column}
+		\begin{column}{0.25\textwidth} % actinides
+			\includegraphics[width=\textwidth]{../figures/actinides/10000/\n-absolute.png}
+
+			\includegraphics[width=\textwidth]{../figures/mix/10000/\n-absolute.png}
+
+			\includegraphics[width=\textwidth]{../figures/all/10000/\n-absolute.png}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{\n, relative}
+	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+		\begin{column}{0.25\textwidth} % actinides
+			\includegraphics[width=\textwidth]{../figures/actinides/300/\n-relative.png}
+
+			\includegraphics[width=\textwidth]{../figures/mix/300/\n-relative.png}
+
+			\includegraphics[width=\textwidth]{../figures/all/300/\n-relative.png}
+		\end{column}
+		\begin{column}{0.25\textwidth} % actinides
+			\includegraphics[width=\textwidth]{../figures/actinides/500/\n-relative.png}
+
+			\includegraphics[width=\textwidth]{../figures/mix/500/\n-relative.png}
+
+			\includegraphics[width=\textwidth]{../figures/all/500/\n-relative.png}
+		\end{column}
+		\begin{column}{0.25\textwidth} % actinides
+			\includegraphics[width=\textwidth]{../figures/actinides/2500/\n-relative.png}
+
+			\includegraphics[width=\textwidth]{../figures/mix/2500/\n-relative.png}
+
+			\includegraphics[width=\textwidth]{../figures/all/2500/\n-relative.png}
+		\end{column}
+		\begin{column}{0.25\textwidth} % actinides
+			\includegraphics[width=\textwidth]{../figures/actinides/10000/\n-relative.png}
+
+			\includegraphics[width=\textwidth]{../figures/mix/10000/\n-relative.png}
+
+			\includegraphics[width=\textwidth]{../figures/all/10000/\n-relative.png}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+}
+
+\end{document}
