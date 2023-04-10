@@ -4,7 +4,7 @@ import openmc.deplete
 import numpy as np
 
 
-groups = [300, 500, 2500] #, 10000]
+groups = [300, 500, 2500, 10000]
 nuc_sets = ['all', 'mix', 'actinides']
 
 radius = 0.39218
@@ -65,10 +65,7 @@ for egroup in groups:
         ax.errorbar(time/day, h1_diff, yerr=2 * abs(h1_diff_err),
                     fmt='g+', ecolor='black', label='hybrid 1', capsize=3)
         ax.errorbar(time/day, h2_diff, yerr=2 * abs(h2_diff_err),
-                    fmt='m*', ecolor='black', label='hybrid 2', capsize=3)
-        #ax.plot(time/day, flux_diff, 'kx', label="flux")
-        # ax.plot(time/day, h1_diff, 'g+', label="hybrid 1")
-        # ax.plot(time/day, h2_diff, 'm*', label="hybrid 2")
+                    fmt='m*', ecolor='black', label='hybrid 2', capsize=4)
         ax.set_xlabel("Time [days]")
         ax.set_ylabel("k_eff diff, pcm")
         ax.set_title(f"K-effective diff, E={egroup}, {nucs}")
