@@ -91,6 +91,25 @@ for nuc in sorted(all_nuclides):
     plt.close()
 
     # plot diff compared to direct
+    flux_diff = (conc_flux - conc_dir) #/ conc_dir * 100
+    h2_diff = (conc_hy2 - conc_dir)    #/ conc_dir * 100
+    h1_diff = (conc_hy1 - conc_dir)    #/ conc_dir * 100
+
+    # plot diff
+    fig, ax = plt.subplots()
+    #ax.plot(time/day, flux_diff, 'kx', label="flux")
+    ax.plot(time/day, h1_diff, 'g+', label="hybrid 1")
+    ax.plot(time/day, h2_diff, 'm*', label="hybrid 2")
+    ax.set_title(f"{nuc}{ast}, E={egroup}, {args.nuclides}")
+    ax.set_xlabel("Time (days)")
+    ax.set_ylabel("Concentration Diff [conc - direct]")
+    ax.legend()
+    ax.grid(True, which='both')
+    plt.tight_layout()
+    plt.savefig(f"figures/{args.nuclides}/{egroup}/{nuc}-diff.png")
+    plt.close()
+
+    # plot diff compared to direct
     flux_diff = (conc_flux - conc_dir) / conc_dir * 100
     h2_diff = (conc_hy2 - conc_dir) / conc_dir * 100
     h1_diff = (conc_hy1 - conc_dir) / conc_dir * 100
