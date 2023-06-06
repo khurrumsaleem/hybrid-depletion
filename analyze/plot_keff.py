@@ -4,8 +4,8 @@ import openmc.deplete
 import numpy as np
 
 
-groups = [300, 500, 2500, 10000]
-nuc_sets = ['all', 'mix', 'actinides']
+groups = [500] # [300, 500, 2500, 10000]
+nuc_sets = ['mix', 'actinides']
 
 radius = 0.39218
 volume = pi * radius**2
