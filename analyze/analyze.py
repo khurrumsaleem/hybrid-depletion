@@ -46,8 +46,8 @@ vol_mult = 1e-24/volume
 print("Loading results...")
 root_path = "/home/kkiesling/depletion/hybrid-depletion/deplete/results/pin/comp-redo/{run_info}/depletion_results.h5"
 direct_results = openmc.deplete.Results(root_path.format(run_info="direct"))
-flux_results = openmc.deplete.Results(root_path.format(run_info=f"flux/{egroup}"))
-hybrid1_results = openmc.deplete.Results(root_path.format(run_info=f"hybrid1/{args.nuclides}/{egroup}"))
+#flux_results = openmc.deplete.Results(root_path.format(run_info=f"flux/{egroup}"))
+#hybrid1_results = openmc.deplete.Results(root_path.format(run_info=f"hybrid1/{args.nuclides}/{egroup}"))
 hybrid2_results = openmc.deplete.Results(root_path.format(run_info=f"hybrid2/{args.nuclides}/{egroup}"))
 print("... loading complete")
 
@@ -64,12 +64,12 @@ for nuc in sorted(all_nuclides):
     conc_dir = atoms_dir * vol_mult # [atoms] [cm^2/b] / [cm^2] = atom/b
 
     # flux results
-    _, atoms_flux = flux_results.get_atoms('1', nuc)
-    conc_flux = atoms_flux * vol_mult  # [atoms] [cm^2/b] / [cm^2] = atom/b
+    #_, atoms_flux = flux_results.get_atoms('1', nuc)
+    #conc_flux = atoms_flux * vol_mult  # [atoms] [cm^2/b] / [cm^2] = atom/b
 
     # hybrid 1  results
-    _, atoms_hy1 = hybrid1_results.get_atoms('1', nuc)
-    conc_hy1 = atoms_hy1 * vol_mult  # [atoms] [cm^2/b] / [cm^2] = atom/b
+    #_, atoms_hy1 = hybrid1_results.get_atoms('1', nuc)
+    #conc_hy1 = atoms_hy1 * vol_mult  # [atoms] [cm^2/b] / [cm^2] = atom/b
 
     # hybrid 2 results
     time, atoms_hy2 = hybrid2_results.get_atoms('1', nuc)
@@ -78,54 +78,54 @@ for nuc in sorted(all_nuclides):
     # plot absolute
     fig, ax = plt.subplots()
     ax.plot(time/day, conc_dir, 'bo', label="direct")
-    ax.plot(time/day, conc_flux, 'kx', label="flux")
-    ax.plot(time/day, conc_hy1, 'g+', label="hybrid 1")
+    #ax.plot(time/day, conc_flux, 'kx', label="flux")
+    #ax.plot(time/day, conc_hy1, 'g+', label="hybrid 1")
     ax.plot(time/day, conc_hy2, 'm*', label="hybrid 2")
-    ax.set_title(f"{nuc}{ast}, E={egroup}, {args.nuclides}")
+    ax.set_title(f"{nuc}{ast}, E={egroup}, {args.nuclides} - original")
     ax.set_xlabel("Time (days)")
     ax.set_ylabel("Concentration [atoms/b]")
     ax.legend()
     ax.grid(True, which='both')
     plt.tight_layout()
-    plt.savefig(f"figures/{args.nuclides}/{egroup}/{nuc}-absolute.png")
+    plt.savefig(f"figures/{args.nuclides}/{egroup}/{nuc}-absolute-hy2.png")
     plt.close()
 
     # plot diff compared to direct
-    flux_diff = (conc_flux - conc_dir) #/ conc_dir * 100
+    #flux_diff = (conc_flux - conc_dir) #/ conc_dir * 100
     h2_diff = (conc_hy2 - conc_dir)    #/ conc_dir * 100
-    h1_diff = (conc_hy1 - conc_dir)    #/ conc_dir * 100
+    #h1_diff = (conc_hy1 - conc_dir)    #/ conc_dir * 100
 
     # plot diff
     fig, ax = plt.subplots()
     #ax.plot(time/day, flux_diff, 'kx', label="flux")
-    ax.plot(time/day, h1_diff, 'g+', label="hybrid 1")
+    #ax.plot(time/day, h1_diff, 'g+', label="hybrid 1")
     ax.plot(time/day, h2_diff, 'm*', label="hybrid 2")
-    ax.set_title(f"{nuc}{ast}, E={egroup}, {args.nuclides}")
+    ax.set_title(f"{nuc}{ast}, E={egroup}, {args.nuclides} - original")
     ax.set_xlabel("Time (days)")
     ax.set_ylabel("Concentration Diff [conc - direct]")
     ax.legend()
     ax.grid(True, which='both')
     plt.tight_layout()
-    plt.savefig(f"figures/{args.nuclides}/{egroup}/{nuc}-diff.png")
+    plt.savefig(f"figures/{args.nuclides}/{egroup}/{nuc}-diff-hy2.png")
     plt.close()
 
     # plot diff compared to direct
-    flux_diff = (conc_flux - conc_dir) / conc_dir * 100
+    #flux_diff = (conc_flux - conc_dir) / conc_dir * 100
     h2_diff = (conc_hy2 - conc_dir) / conc_dir * 100
-    h1_diff = (conc_hy1 - conc_dir) / conc_dir * 100
+    #h1_diff = (conc_hy1 - conc_dir) / conc_dir * 100
 
     # plot diff
     fig, ax = plt.subplots()
     #ax.plot(time/day, flux_diff, 'kx', label="flux")
-    ax.plot(time/day, h1_diff, 'g+', label="hybrid 1")
+    #ax.plot(time/day, h1_diff, 'g+', label="hybrid 1")
     ax.plot(time/day, h2_diff, 'm*', label="hybrid 2")
-    ax.set_title(f"{nuc}{ast}, E={egroup}, {args.nuclides}")
+    ax.set_title(f"{nuc}{ast}, E={egroup}, {args.nuclides} - original")
     ax.set_xlabel("Time (days)")
     ax.set_ylabel("Relative Concentration [(conc - direct)/direct]")
     ax.legend()
     ax.grid(True, which='both')
     plt.tight_layout()
-    plt.savefig(f"figures/{args.nuclides}/{egroup}/{nuc}-relative.png")
+    plt.savefig(f"figures/{args.nuclides}/{egroup}/{nuc}-relative-hy2.png")
     plt.close()
 
 
